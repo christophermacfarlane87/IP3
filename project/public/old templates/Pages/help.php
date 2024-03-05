@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<?php
+// Author : Christopher Macfarlane
+        // Date : 15/5/2023
+        // Title : help.php
+        // Description :this page is primarily for displaying all  help for the website  (fresh start foods website Graded Unit)
+
+//includes autoload function so classes can be called
+include '/xampp/htdocs/Workspace/includes/autoload.inc.php';
+// includes the header
+include '/xampp/htdocs/Workspace/includes/header.inc.php';
+?>
+    
+    <main>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur vitae. Eget mauris pharetra et ultrices neque ornare aenean euismod. Scelerisque mauris pellentesque pulvinar pellentesque habitant morbi. Egestas sed sed risus pretium quam vulputate dignissim. Suscipit adipiscing bibendum est ultricies integer quis auctor elit sed. At auctor urna nunc id cursus metus aliquam eleifend. Mauris pellentesque pulvinar pellentesque habitant morbi tristique. Eros donec ac odio tempor. Nulla malesuada pellentesque elit eget gravida cum sociis natoque. Nulla facilisi cras fermentum odio eu feugiat pretium nibh. Et malesuada fames ac turpis. Vel quam elementum pulvinar etiam non quam. Diam maecenas ultricies mi eget mauris pharetra et ultrices neque.<br>
+
+Ornare quam viverra orci sagittis eu. Dolor morbi non arcu risus. Nec dui nunc mattis enim ut tellus elementum. Lacus sed viverra tellus in hac habitasse platea dictumst. Auctor eu augue ut lectus arcu bibendum at varius. Eget aliquet nibh praesent tristique magna. Libero nunc consequat interdum varius sit. Morbi tristique senectus et netus et malesuada fames ac. Ac auctor augue mauris augue. Nisl tincidunt eget nullam non nisi est sit. Risus sed vulputate odio ut enim blandit volutpat maecenas volutpat. Volutpat maecenas volutpat blandit aliquam etiam erat. Ligula ullamcorper malesuada proin libero nunc consequat interdum varius.
+<br>
+Tincidunt lobortis feugiat vivamus at augue. Id velit ut tortor pretium viverra. Facilisis mauris sit amet massa. Bibendum ut tristique et egestas quis ipsum suspendisse ultrices. Lorem sed risus ultricies tristique nulla aliquet enim. Morbi blandit cursus risus at ultrices mi tempus. Sed velit dignissim sodales ut. Pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu vitae. Tortor aliquam nulla facilisi cras fermentum odio eu. Et sollicitudin ac orci phasellus egestas tellus. Vehicula ipsum a arcu cursus vitae congue mauris. Sed cras ornare arcu dui vivamus arcu felis bibendum. Ut porttitor leo a diam sollicitudin tempor id eu. Nunc lobortis mattis aliquam faucibus purus. At ultrices mi tempus imperdiet nulla malesuada pellentesque. Suspendisse interdum consectetur libero id faucibus nisl tincidunt. Massa tincidunt dui ut ornare lectus sit amet.
+<br>
+Porttitor eget dolor morbi non arcu risus. Donec adipiscing tristique risus nec feugiat. Nunc lobortis mattis aliquam faucibus purus in massa tempor. Arcu non odio euismod lacinia at quis risus. Et ultrices neque ornare aenean euismod. Viverra accumsan in nisl nisi scelerisque eu ultrices. Nibh praesent tristique magna sit amet purus gravida. A lacus vestibulum sed arcu. Urna duis convallis convallis tellus id. Nibh tortor id aliquet lectus proin. Lorem mollis aliquam ut porttitor leo a diam sollicitudin. Varius vel pharetra vel turpis nunc eget lorem dolor sed. Neque sodales ut etiam sit amet. Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Urna neque viverra justo nec ultrices dui sapien eget mi. Rutrum tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras.
+<br>
+Placerat duis ultricies lacus sed turpis tincidunt id. Ac tortor vitae purus faucibus ornare. Urna id volutpat lacus laoreet. Et ultrices neque ornare aenean euismod. Sit amet risus nullam eget felis eget nunc lobortis mattis. Sed libero enim sed faucibus turpis in eu mi bibendum. Arcu felis bibendum ut tristique et egestas. Quisque sagittis purus sit amet volutpat consequat mauris nunc. Libero enim sed faucibus turpis in eu mi bibendum neque. Pulvinar etiam non quam lacus suspendisse faucibus interdum.
+<br>
+Odio morbi quis commodo odio aenean sed adipiscing. Turpis egestas pretium aenean pharetra. In dictum non consectetur a erat. Proin sagittis nisl rhoncus mattis rhoncus urna. Venenatis a condimentum vitae sapien pellentesque habitant morbi tristique senectus. Elementum integer enim neque volutpat ac. Aliquet bibendum enim facilisis gravida neque convallis a cras. Sed tempus urna et pharetra pharetra massa massa. Cursus turpis massa tincidunt dui ut. Quam pellentesque nec nam aliquam. Semper auctor neque vitae tempus quam pellentesque nec nam aliquam. Mi bibendum neque egestas congue quisque egestas diam in. Sagittis vitae et leo duis ut. Nisl nunc mi ipsum faucibus. Imperdiet nulla malesuada pellentesque elit eget gravida. Lacus luctus accumsan tortor posuere ac ut.
+<br>
+Aliquam ultrices sagittis orci a scelerisque purus semper eget duis. Sed id semper risus in hendrerit gravida. Molestie ac feugiat sed lectus vestibulum mattis. Tortor dignissim convallis aenean et tortor at risus viverra adipiscing. Libero volutpat sed cras ornare arcu dui vivamus arcu. Aliquam etiam erat velit scelerisque. Euismod nisi porta lorem mollis. Eget magna fermentum iaculis eu non diam. Feugiat nisl pretium fusce id velit ut. Amet mauris commodo quis imperdiet. Scelerisque purus semper eget duis at tellus. Nibh tellus molestie nunc non blandit massa.
+<br>
+Amet purus gravida quis blandit turpis cursus. Consequat ac felis donec et odio. Donec pretium vulputate sapien nec. Ut sem viverra aliquet eget sit. Tincidunt tortor aliquam nulla facilisi cras. Tellus id interdum velit laoreet id donec ultrices tincidunt. Nisi scelerisque eu ultrices vitae auctor eu augue ut. Et odio pellentesque diam volutpat commodo sed. Magna fringilla urna porttitor rhoncus dolor. Massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada. Quis viverra nibh cras pulvinar mattis nunc. Lectus quam id leo in vitae turpis massa sed elementum. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis.
+<br>
+Lectus sit amet est placerat in egestas erat imperdiet. Sed odio morbi quis commodo odio aenean sed adipiscing diam. Erat velit scelerisque in dictum. Adipiscing bibendum est ultricies integer quis auctor elit sed vulputate. Turpis egestas pretium aenean pharetra magna ac placerat vestibulum. Tempus quam pellentesque nec nam aliquam sem et tortor. Morbi tincidunt augue interdum velit euismod. Placerat orci nulla pellentesque dignissim enim. Natoque penatibus et magnis dis parturient montes nascetur. Urna id volutpat lacus laoreet non curabitur gravida. Purus sit amet volutpat consequat mauris nunc congue nisi. Iaculis eu non diam phasellus vestibulum lorem. Orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt.
+<br>
+Purus gravida quis blandit turpis. Aenean pharetra magna ac placerat vestibulum lectus mauris ultrices eros. Ipsum faucibus vitae aliquet nec ullamcorper sit. Eget egestas purus viverra accumsan in nisl. Sit amet consectetur adipiscing elit ut aliquam purus. Tortor consequat id porta nibh venenatis cras sed felis eget. Viverra aliquet eget sit amet tellus cras adipiscing. Aliquet nibh praesent tristique magna sit amet. Nunc mi ipsum faucibus vitae aliquet nec ullamcorper sit amet. Ultrices tincidunt arcu non sodales neque. Nisi est sit amet facilisis magna etiam tempor orci eu. Duis at consectetur lorem donec massa sapien. Massa sed elementum tempus egestas sed sed risus. Odio eu feugiat pretium nibh ipsum consequat. At varius vel pharetra vel turpis nunc. Integer feugiat scelerisque varius morbi. Tempus imperdiet nulla malesuada pellentesque elit eget. Odio eu feugiat pretium nibh ipsum. <br>
+    </main>
+    <?php
+     // includes the footer
+    include '/xampp/htdocs/Workspace/includes/footer.inc.php';
+?>
+   </html>
