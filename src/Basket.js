@@ -1,15 +1,14 @@
 class Basket {
     constructor() {
-        // Initialize the variables
-        this.productID = 0;
+        this.productsInBasket = [];
         this.amountInBasket = 0.0;
         this.itemOrderValue = 0.0;
-        this.basketStatus = "";
+        this.basketStatus = "pending";
     }
 
     // Getters
-    getProductId() {
-        return this.productID;
+    getProductsInBasket() {
+        return this.productsInBasket;
     }
 
     getAmountInBasket() {
@@ -42,7 +41,7 @@ class Basket {
     }
 }
 
-// Example usage:
+/* // Example usage:
 const myBasket = new Basket();
 myBasket.setProductId(123);
 myBasket.setAmountInBasket(2.5);
@@ -52,4 +51,4 @@ myBasket.setBasketStatus("active");
 console.log("Product ID:", myBasket.getProductId());
 console.log("Amount in Basket:", myBasket.getAmountInBasket());
 console.log("Item Order Value:", myBasket.getItemOrderValue());
-console.log("Basket Status:", myBasket.getBasketStatus());
+console.log("Basket Status:", myBasket.getBasketStatus()); */
