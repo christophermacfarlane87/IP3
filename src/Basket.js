@@ -1,3 +1,5 @@
+possibleStatus = ["pending", "ordered", "delivered", "confirmed"];
+
 class Basket {
     constructor() {
         this.productsInBasket = [];
@@ -39,11 +41,19 @@ class Basket {
     setBasketStatus(status) {
         this.basketStatus = status;
     }
+
+    advanceStatus() {
+        // Don't run if the current basketStatus is the last stage
+        if (this.basketStatus != possibleStatus[possibleStatus.length - 1]) {
+            // Sets the current basket status to the next stage
+            this.basketStatus = possibleStatus[possibleStatus.indexOf(this.basketStatus) + 1];
+        }
+    }
 }
 
 /* // Example usage:
 const myBasket = new Basket();
-myBasket.setProductId(123);
+myBasket.setProductId(123);k
 myBasket.setAmountInBasket(2.5);
 myBasket.setItemOrderValue(45.99);
 myBasket.setBasketStatus("active");
