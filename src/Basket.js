@@ -53,7 +53,7 @@ class Basket {
 
 /* // Example usage:
 const myBasket = new Basket();
-myBasket.setProductId(123);k
+myBasket.setProductId(123);
 myBasket.setAmountInBasket(2.5);
 myBasket.setItemOrderValue(45.99);
 myBasket.setBasketStatus("active");
