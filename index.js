@@ -17,6 +17,11 @@ app.get('/', (req, res) => {
   res.render('index', { navJsPath: './components/nav.js' }); 
 });
 
+// Routing 
+app.get('/Login', (req, res) => {
+  res.render('Login', { pageTitle: 'Staff Login Page' }); 
+});
+
 // Endpoint to provide navigation data
 app.get('/navigation-data', (req, res) => {
   // Tutaj dodaj logikę do pobrania danych nawigacyjnych z serwera
