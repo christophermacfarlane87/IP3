@@ -51,7 +51,7 @@ class MenuItem {
         this.recipe = recipe;
     }
     //this method is used to create a new menu item this function will call setters and then upload the new menu item to the database 
-    createMenuItem(){
+    saveMenuItem(){
 
     }
     // this function handles the displaying of the menu items for cards or information 
