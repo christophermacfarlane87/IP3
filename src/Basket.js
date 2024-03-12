@@ -1,8 +1,11 @@
 possibleStatus = ["pending", "ordered", "delivered", "confirmed"];
 
 class Basket {
+    //declaring variables for the basket
     constructor() {
+        //this array will hold the product objects in the basket 
         this.productsInBasket = [];
+        // this is an array working alongside the array of products as a struck to hold the amount
         this.amountInBasket = 0.0;
         this.itemOrderValue = 0.0;
         this.basketStatus = "pending";
