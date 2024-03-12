@@ -1,15 +1,9 @@
 {
-  "name": "ip3",
-  "version": "1.0.0",
-  "description": "Restaurant stock tracker",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "github.com:christophermacfarlane87/IP3.git"
-  },
-  "author": "",
-  "license": "AGPL-3.0"
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "expres": "^0.0.5",
+    "express": "^4.18.3",
+    "mustache": "^4.2.0",
+    "mustache-express": "^1.3.2"
+  }
 }
