@@ -31,6 +31,9 @@ class Basket {
     }
 
     // Setters
+    //are we missing a set products in basket?
+    
+
     // im not sure this function should be in basket 
     setProductId(id) {
         this.productID = id;
