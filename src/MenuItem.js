@@ -1,5 +1,6 @@
 class MenuItem {
     constructor(name) {
+        //declaring variables for the menu item
         this.name = name;
         this.ingredients = [];
         this.quantity = [];
