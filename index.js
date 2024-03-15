@@ -14,7 +14,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Routing
 app.get('/', (req, res) => {
-  res.render('index', { navJsPath: './components/nav.js' }); 
+  res.render('index', {  }); 
 });
 
 // Routing 
