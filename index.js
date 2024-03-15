@@ -24,18 +24,15 @@ app.get('/Login', (req, res) => {
 
 // Endpoint to provide navigation data
 app.get('/navigation-data', (req, res) => {
-  // Tutaj dodaj logikę do pobrania danych nawigacyjnych z serwera
-  // Może to być np. pobranie danych z bazy danych lub pliku
   const navigationData = {
     title: "Your Navigation Title",
     links: [
       { url: "/page1", label: "Page 1" },
       { url: "/page2", label: "Page 2" },
-      // Dodaj więcej linków, jeśli jest to potrzebne
     ]
   };
 
-  // Zwróć dane nawigacyjne w formacie JSON
+
   res.json(navigationData);
 });
 
