@@ -1,31 +1,51 @@
 <div class="col">
     <div class="card h-100">
-      <img src="..." class="card-img-top" alt="...">
+        <a href="../../Workspace/Pages/single_item.php? product_name='.$rs['product_name'].'"></a>
       <div class="card-body">
-        <h5 class="card-title">Carrots</h5>
-        <img class = "card-image" src="/Images/Carrots.jpg" class="card-img-top" alt="..."></a>
-        <h5 class="card-title">Price per pack : £1.00</p>
-        <h5 class="card-title">Pack size : 1kg</p>
-        <h5 class="card-title">Price per kg : £1.00</p>
-        <p class="card-text">Carrots are a hardy veg that are readily available all year round</p>
-        
-      </div>
-      <div class="card-footer">
-        <label class ="register-label" for="amount_to_order">  :</label>
-        <input class ="register-input" type="number" id="amount_to_order" name="amount_to_order" value="">
+        <h5 class="card-title">Stocks</h5>
+        <img class = "card-image" src="/public/Images/Food_stock.jpg" class="card-img-top" alt="stocks image">Food Stocks</a>
+        <h5 class="card-title">View my food stocks.</p>    
       </div>
     </div>
-  </div>
+</div>
+  <div class="col">
+    <div class="card h-100">
+        <a href="../../Workspace/Pages/single_item.php? product_name='.$rs['product_name'].'"></a>
+      <div class="card-body">
+        <h5 class="card-title">Sales</h5>
+        <img class = "card-image" src="/public/Images/sales.jpg" class="card-img-top" alt="Sales image"></a>
+        <h5 class="card-title">Check on my sales/</p>
+      </div>
+    </div>
+</div>
+<div class="col">
+    <div class="card h-100">
+        <a href="../../Workspace/Pages/single_item.php? product_name='.$rs['product_name'].'"></a>
+      <div class="card-body">
+        <h5 class="card-title"></h5>
+        <img class = "card-image" src="/public/Images/Menu.jpg" class="card-img-top" alt="menu image"></a>
+        <h5 class="card-title">My Menu</p>
+      </div>
+    </div>
+</div>
+<div class="col">
+    <div class="card h-100">
+        <a href=""></a>
+      <div class="card-body">
+        <h5 class="card-title">Login</h5>
+        <img class = "card-image" src="/public/Images/login.jpg" class="card-img-top" alt="Login"></a>
+        <h5 class="card-title">Login</p>
+      </div>
+    </div>
+</div>
+<div class="col">
+    <div class="card h-100">
+        <a href=""></a>
+      <div class="card-body">
+        <h5 class="card-title">My orders</h5>
+        <img class = "card-image" src="/public/Images/Orders.jpg" class="card-img-top" alt="My orders image"></a>
+        <h5 class="card-title">My orders</p>
+      </div>
+    </div>
+</div>
 
-  <div class = "card">
-    <a href="../../Workspace/Pages/single_item.php? product_name='.$rs['product_name'].'">
-    <img class = "card-image" src="data:image/jpeg;base64,'.base64_encode($this->get_product_img()).'" class="card-img-top" alt="..."></a>
-    <div class="card-body">
-    <h5 class="card-title">Name : '.$rs['product_name'].'</p>
-    <h5 class="card-title">Price per pack : £'.$rs['price_per_pack'].'</p>
-    <h5 class="card-title">Pack size : '.$rs['pack_size'].'g</p>
-    <h5 class="card-title">Price per kg : £'.$rs['price_per_kg'].'</p>
-    <p class="card-text">Product Description : '.$rs['product_description'].'</p>
-    </div> 
-    
-    </div>

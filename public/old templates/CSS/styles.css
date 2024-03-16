@@ -135,6 +135,16 @@ main h1 {
 /*h2*/
 
 /*cards*/
+.UIcol{
+    padding: 1em;
+    font-family: var(--FF);
+    display: flex;
+    flex-flow: rowwrap;
+    gap: 1.5em;
+    text-align: center;
+    justify-content: space-evenly;
+    color: var(--BGCOLOR);
+}
 .col{
     color: var(--BGCOLOR);
 }
