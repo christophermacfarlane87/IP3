@@ -135,6 +135,9 @@ main h1 {
 /*h2*/
 
 /*cards*/
+.col{
+    color: var(--BGCOLOR);
+}
 .cards{
     
     padding: 1rem;

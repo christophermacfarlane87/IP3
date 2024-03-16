@@ -1,0 +1,31 @@
+<div class="col">
+    <div class="card h-100">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Carrots</h5>
+        <img class = "card-image" src="/Images/Carrots.jpg" class="card-img-top" alt="..."></a>
+        <h5 class="card-title">Price per pack : £1.00</p>
+        <h5 class="card-title">Pack size : 1kg</p>
+        <h5 class="card-title">Price per kg : £1.00</p>
+        <p class="card-text">Carrots are a hardy veg that are readily available all year round</p>
+        
+      </div>
+      <div class="card-footer">
+        <label class ="register-label" for="amount_to_order">  :</label>
+        <input class ="register-input" type="number" id="amount_to_order" name="amount_to_order" value="">
+      </div>
+    </div>
+  </div>
+
+  <div class = "card">
+    <a href="../../Workspace/Pages/single_item.php? product_name='.$rs['product_name'].'">
+    <img class = "card-image" src="data:image/jpeg;base64,'.base64_encode($this->get_product_img()).'" class="card-img-top" alt="..."></a>
+    <div class="card-body">
+    <h5 class="card-title">Name : '.$rs['product_name'].'</p>
+    <h5 class="card-title">Price per pack : £'.$rs['price_per_pack'].'</p>
+    <h5 class="card-title">Pack size : '.$rs['pack_size'].'g</p>
+    <h5 class="card-title">Price per kg : £'.$rs['price_per_kg'].'</p>
+    <p class="card-text">Product Description : '.$rs['product_description'].'</p>
+    </div> 
+    
+    </div>
