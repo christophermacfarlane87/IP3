@@ -1,8 +1,7 @@
 class MenuItem {
     constructor(name) {
         this.name = name;
-        this.ingredients = [];
-        this.quantity = [];
+        this.ingredients = new Map([[null, 0]]);
         this.price = 0.0;
         this.recipe = "";
     }
@@ -16,8 +15,8 @@ class MenuItem {
         return this.ingredients;
     }
 
-    getQuantity() {
-        return this.quantity;
+    getQuantity(ingredient) {
+        return this.ingredients.get(ingredient);
     }
 
     getPrice() {
@@ -34,11 +33,12 @@ class MenuItem {
     }
 
     setIngredients(ingredients) {
+        // Add check to ensure valid map
         this.ingredients = ingredients;
     }
 
-    setQuantity(quantity) {
-        this.quantity = quantity;
+    setQuantity(ingredient, quantity) {
+        this.ingredients.set(ingredient, quantity);
     }
 
     setPrice(price) {

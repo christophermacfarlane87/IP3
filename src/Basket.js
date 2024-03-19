@@ -2,44 +2,23 @@ possibleStatus = ["pending", "ordered", "delivered", "confirmed"];
 
 class Basket {
     constructor() {
-        this.productsInBasket = [];
-        this.amountInBasket = 0.0;
-        this.itemOrderValue = 0.0;
+        this.productsInBasket = [null];
+        this.basketTotal = 0.0;
         this.basketStatus = "pending";
     }
 
-    // Getters
-    getProductsInBasket() {
-        return this.productsInBasket;
+    addProductToBasket(product) {
+        // Should add check to see if requested product is valid
+        this.productsInBasket = this.productsInBasket.push(product);
+    }
+    
+    removeProductFromBasket(product) {
+        // Should add check to see if requested product is valid
+        this.productsInBasket.splice(this.productsInBasket.indexOf(product), 1);
     }
 
-    getAmountInBasket() {
-        return this.amountInBasket;
-    }
-
-    getItemOrderValue() {
-        return this.itemOrderValue;
-    }
-
-    getBasketStatus() {
-        return this.basketStatus;
-    }
-
-    // Setters
-    setProductId(id) {
-        this.productID = id;
-    }
-
-    setAmountInBasket(amount) {
-        this.amountInBasket = amount;
-    }
-
-    setItemOrderValue(value) {
-        this.itemOrderValue = value;
-    }
-
-    setBasketStatus(status) {
-        this.basketStatus = status;
+    displayBasket() {
+        return `Basket Total: ${this.basketTotal}\nBasket Status: ${this.basketStatus}\nProducts in Basket:\n${this.productsInBasket}\n\n`
     }
 
     advanceStatus() {
@@ -48,6 +27,32 @@ class Basket {
             // Sets the current basket status to the next stage
             this.basketStatus = possibleStatus[possibleStatus.indexOf(this.basketStatus) + 1];
         }
+    }
+
+    // Getters
+    getProductsInBasket() {
+        return this.productsInBasket;
+    }
+
+    getBasketTotal() {
+        return this.basketTotal;
+    }
+
+    getBasketStatus() {
+        return this.basketStatus;
+    }
+
+    // Setters
+    setProductsInBasket(products) {
+        this.productsInBasket = products;
+    }
+
+    setBasketTotal(amount) {
+        this.basketTotal = amount;
+    }
+
+    setBasketStatus(status) {
+        this.basketStatus = status;
     }
 }
 
