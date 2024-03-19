@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const parse = require('csv-parse/lib/sync');
+const { parse } = require('csv-parse/sync');
 const nedb = require('nedb');
 const https = require('https');
 
@@ -9,9 +9,9 @@ class DB {
         this.db = new nedb({ inMemoryOnly: true });
     }
 
-    importFromCSV(filePath) {
+    importFromCSV(filePath, columnDef) {
         const csvData = fs.readFileSync(filePath, 'utf8');
-        const records = parse(csvData, { columns: true, skip_empty_lines: true });
+        const records = parse(csvData, { columns: columnDef, skip_empty_lines: true });
 
         this.db.insert(records, (err, newDocs) => {
             if (err) {
@@ -23,27 +23,32 @@ class DB {
         });
     }
 
-    importFromURL(exampleDBUrl) {
-        https.get(exampleDBUrl, (res) => {
-            let data = '';
+    importFromURL(exampleDBUrl, columnDef) {
+        return new Promise((resolve, reject) => {
+            https.get(exampleDBUrl, (res) => {
+                let data = '';
 
-            res.on('data', (chunk) => {
-                data += chunk;
-            });
-
-            res.on('end', () => {
-                const records = parse(data, { columns: true, skip_empty_lines: true });
-                this.db.insert(records, (err, newDocs) => {
-                    if (err) {
-                        console.error('Error importing example database:', err);
-                    } 
-                    else {
-                        console.log(`Imported ${newDocs.length} documents from example database`);
-                    }
+                res.on('data', (chunk) => {
+                    data += chunk;
                 });
+
+                res.on('end', () => {
+                    const records = parse(data, { columns: columnDef, skip_empty_lines: true });
+                    this.db.insert(records, (err, newDocs) => {
+                        if (err) {
+                            console.error('Error importing example database:', err);
+                            reject(err);
+                        } 
+                        else {
+                            console.log(`Imported ${newDocs.length} documents from example database`);
+                            resolve();
+                        }
+                    });
+                });
+            }).on('error', (err) => {
+                console.error('Error importing example database:', err);
+                reject(err);
             });
-        }).on('error', (err) => {
-            console.error('Error importing example database:', err);
         });
     }
 

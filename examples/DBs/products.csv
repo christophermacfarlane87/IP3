@@ -1,12 +1,12 @@
-Apples,Fruit,2.99,1,1.99,"Fresh, crisp apples",50
-Bananas,Fruit,1.49,1,0.99,"Ripe, sweet bananas",30
-Oranges,Fruit,3.49,2,2.49,"Juicy, vitamin-rich oranges",60
-Carrots,Vegetable,1.29,1,0.99,"Fresh, crunchy carrots",20
-Broccoli,Vegetable,2.79,1,1.99,"Nutrient-packed broccoli",40
-Tomatoes,Vegetable,2.49,1,1.79,"Ripe, flavorful tomatoes",35
-Bread,Bakery,2.99,1,1.99,"Freshly baked whole wheat bread",80
-Cookies,Bakery,3.49,1,2.99,"Delicious chocolate chip cookies",100
-Cake,Bakery,12.99,1,9.99,"Moist, decadent chocolate cake",200
-Milk,Dairy,3.99,1,3.99,"Fresh, whole milk",60
-Cheese,Dairy,4.99,1,4.99,"Sharp cheddar cheese",120
-Yogurt,Dairy,2.49,4,1.99,"Creamy, fruit-flavored yogurt",40
+Apples,Fruit,2.99,1,1.99,"Fresh, crisp apples",50,1
+Bananas,Fruit,1.49,1,0.99,"Ripe, sweet bananas",30,1
+Oranges,Fruit,3.49,2,2.49,"Juicy, vitamin-rich oranges",60,1
+Carrots,Vegetable,1.29,1,0.99,"Fresh, crunchy carrots",20,1
+Broccoli,Vegetable,2.79,1,1.99,"Nutrient-packed broccoli",40,1
+Tomatoes,Vegetable,2.49,1,1.79,"Ripe, flavorful tomatoes",35,1
+Bread,Bakery,2.99,1,1.99,"Freshly baked whole wheat bread",80,1
+Cookies,Bakery,3.49,1,2.99,"Delicious chocolate chip cookies",100,1
+Cake,Bakery,12.99,1,9.99,"Moist, decadent chocolate cake",200,1
+Milk,Dairy,3.99,1,3.99,"Fresh, whole milk",60,1
+Cheese,Dairy,4.99,1,4.99,"Sharp cheddar cheese",120,1
+Yogurt,Dairy,2.49,4,1.99,"Creamy, fruit-flavored yogurt",40,1
