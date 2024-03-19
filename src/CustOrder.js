@@ -24,6 +24,10 @@ class CustOrder {
         return this.items;
     }
 
+    getAmount(item) {
+        return this.items.get(item); 
+    }
+
     getTable() {
         return this.table;
     }
@@ -31,6 +35,10 @@ class CustOrder {
     // Setters
     setItems(items) {
         this.items = items;
+    }
+
+    setAmount(item, amount) {
+        this.items.set(item, amount); 
     }
 
     setTable(table) {

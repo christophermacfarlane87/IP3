@@ -1,9 +1,11 @@
 possibleStatus = ["pending", "ordered", "delivered", "confirmed"];
 
 class Basket {
+    //declaring variables for the basket
     constructor() {
         this.productsInBasket = new Map([[null, 0.0]]); // Null is of type product, amount of product
         this.basketTotal = 0.0;
+        this.itemOrderValue = 0.0;
         this.basketStatus = "pending";
     }
 
@@ -33,11 +35,15 @@ class Basket {
     getProductsInBasket() {
         return this.productsInBasket;
     }
-
+  
     getBasketTotal() {
         return this.basketTotal;
     }
-
+  
+    getItemOrderValue() {
+        return this.itemOrderValue
+    }
+  
     getBasketStatus() {
         return this.basketStatus;
     }
@@ -50,7 +56,12 @@ class Basket {
     setBasketTotal(amount) {
         this.basketTotal = amount;
     }
-
+  
+    setItemOrderValue(value) {
+        this.itemOrderValue = value; 
+    }
+  
+    //this function will set the status of the basket Via a form and add the basket items to the stock   
     setBasketStatus(status) {
         this.basketStatus = status;
     }
