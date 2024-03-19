@@ -2,7 +2,7 @@ possibleStatus = ["pending", "ordered", "delivered", "confirmed"];
 
 class Basket {
     constructor() {
-        this.productsInBasket = [null];
+        this.productsInBasket = new Map([[null, 0.0]]); // Null is of type product, amount of product
         this.basketTotal = 0.0;
         this.basketStatus = "pending";
     }
