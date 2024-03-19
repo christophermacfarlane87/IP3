@@ -77,6 +77,6 @@ class MenuItem {
     updateMenuItem(){
 
     }
-
-
 }
+
+module.exports = MenuItem;

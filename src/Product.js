@@ -16,30 +16,37 @@ class Product {
     getProductName() {
         return this.productName;
     }
+    
     // retrieves product type
     getProductType() {
         return this.productType;
     }
+
     // retrieves price per pack
     getPricePerPack() {
         return this.pricePerPack;
     }
+
     // retrieves the pack size
     getPackSize() {
         return this.packSize;
     }
+
     // retrieves price per kg
     getPricePerKg() {
         return this.pricePerKg;
     }
+
     // retrieves description of the product
     getProductDescription() {
         return this.productDescription;
     }
+
     // should this be here or in the Stock Class? Calum
     getHoldingValue() {
         return this.holdingValue;
     }
+
     // should this be here or in the Stock Class? Calum
     getAmountInStock() {
         return this.amountInStock;
@@ -50,53 +57,60 @@ class Product {
     setProductName(newName) {
         this.productName = newName;
     }
+
     //sets the type of product
     setProductType(newType) {
         this.productType= newType;
     }
+
     //sets the price per pack 
     setPricePerPack(newPrice) {
         this.pricePerPack = newPrice;
     }
+
     //sets pack size of the product
     setPackSize(newSize) {
         this.packSize = newSize;
     }
+
     //sets the price per kg 
     setPricePerKg(newMass) {
         this.pricePerKg = newMass;
     }
+
     //sets the product description
     setProductDescription(newDes) {
         this.productDescription = newDes;
     }
+
     // should this be here or in the Stock Class? Calum
     setHoldingValue(newVal) {
         this.holdingValue = newVal;
     }
+
     // should this be here or in the Stock Class? Calum
     setAmountInStock(newStock) {
         // Var is an array, possibly have setter insert into a single element
         this.amountInStock = newStock;
     }
-// this method recieves variables from a form on the webpage and add a new product to the database
-createNewProduct(){
+    
+    // this method recieves variables from a form on the webpage and updates a product on the database
+    updateProduct(){
 
-}
-// this method recieves variables from a form on the webpage and updates a product on the database
-updateProduct(){
+    }
 
-}
-// this method deletes a selected product from the database 
-deleteProduct(){
+    // this method deletes a selected product from the database 
+    deleteProduct(){
 
-}
-// this product displays the product as a card this may need to be split into different methods for different types of display 
-displayProduct(){
+    }
 
+    // this product displays the product as a card this may need to be split into different methods for different types of display 
+    displayProduct(){
+
+    }
 }
 
-}
+module.exports = Product;
 
 /*// Example usage:
 const apple = new Product();

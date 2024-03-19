@@ -45,3 +45,5 @@ class CustOrder {
         this.table = table;
     }
 }
+
+module.exports = CustOrder;
