@@ -1,14 +1,14 @@
 class StockCount {
     constructor() {
-        this.products = [];
+        this.products = [[null, 0.0, 0.0]]; // Null is of type Product, Verified amount in stock, theoretical amount in stock
     }
 
     addProduct(product) {
-        products.push(product);
+        products.push([product, 0.0, 0.0]);
     }
 
     removeProduct(product) {
-        products = this.products.filter(a => a !== product);
+        this.products = this.products.filter(products => products[0] !== product);
     }
 
     restartCount() {
