@@ -55,7 +55,7 @@ app.get('/order', (req, res) => {
 app.get('/menu', (req, res) => {
   res.render('menu', {  }); 
 });
-app.get('/Login', (req, res) => {
+app.get('/login', (req, res) => {
   res.render('Login', { pageTitle: 'Staff Login Page' }); 
 });
 
