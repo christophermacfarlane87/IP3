@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => {
   res.render('index', {  }); 
 });
-app.get('/fresh meat', (req, res) => {
+app.get('/freshMeat', (req, res) => {
   res.render('freshMeat', {  }); 
 });
 app.get('/fish', (req, res) => {
