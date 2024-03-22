@@ -1,6 +1,6 @@
 class CustOrder {
-    constructor(table) {
-        this.items = new Map([[null, 0]]); // Menu item, Amount of that item
+    constructor(items, table) {
+        this.items = items;
         this.table = table;
     }
 
@@ -17,6 +17,22 @@ class CustOrder {
     placeOrder() {
         // Stockcount.instance.orderPlaced(this.CustOrder);
         // Or something like that
+    }
+
+    convertImported(menuItems) {
+        const convertedMenuItems = new Map();
+
+        for (const [menuItemName, quantity] of Object.entries(this.items)) {
+            const item = menuItems.find(menu => menu.name === menuItemName);
+            if (item) {
+                convertedMenuItems.set(item, quantity);
+            } else {
+                console.warn(`Product "${menuItemName}" not found in the menu items list.`);
+                convertedMenuItems.set(menuItemName, quantity);
+            }
+        }
+
+        this.items = convertedMenuItems;
     }
 
     // Getters

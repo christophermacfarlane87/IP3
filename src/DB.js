@@ -9,45 +9,67 @@ class DB {
         this.db = new nedb({ inMemoryOnly: true });
     }
 
-    importFromCSV(filePath, columnDef) {
-        const csvData = fs.readFileSync(filePath, 'utf8');
-        const records = parse(csvData, { columns: columnDef, skip_empty_lines: true });
-
-        this.db.insert(records, (err, newDocs) => {
-            if (err) {
-                console.error('Error seeding database from CSV:', err);
-            } 
-            else {
-                console.log(`Inserted ${newDocs.length} documents from CSV file`);
-            }
-        });
-    }
-
-    importFromURL(exampleDBUrl, columnDef) {
+    downloadCSV(csvUrl, columnDef) {
         return new Promise((resolve, reject) => {
-            https.get(exampleDBUrl, (res) => {
-                let data = '';
+            https.get(csvUrl, (res) => {
+                let csvData = '';
 
                 res.on('data', (chunk) => {
-                    data += chunk;
+                    csvData += chunk;
                 });
 
                 res.on('end', () => {
-                    const records = parse(data, { columns: columnDef, skip_empty_lines: true });
-                    this.db.insert(records, (err, newDocs) => {
-                        if (err) {
-                            console.error('Error importing example database:', err);
-                            reject(err);
-                        } 
-                        else {
-                            console.log(`Imported ${newDocs.length} documents from example database`);
-                            resolve();
-                        }
-                    });
+                    this.importFromCSV(csvData, columnDef)
+                    .then(resolve)
+                    .catch(reject);
                 });
             }).on('error', (err) => {
-                console.error('Error importing example database:', err);
+                console.error('Error downloading CSV:', err);
                 reject(err);
+            });
+        });
+    }
+
+    importCSV(filePath, columnDef) {
+        return new Promise((resolve) => {
+            const csvData = fs.readFileSync(filePath, 'utf8');
+            this.importFromCSV(csvData, columnDef);
+            resolve();
+        })
+
+    }
+
+    importFromCSV(csvData, columnDef) {
+        return new Promise((resolve, reject) => {
+            const records = parse(csvData, {
+                columns: columnDef,
+                skip_empty_lines: true,
+                cast: (value, context) => {
+                    if (context.column === 'ingredients' || context.column === 'items') {
+                        const ingredientsArray = JSON.parse(value);
+                        const ingredientsMap = new Map();
+
+                        for (let i = 0; i < ingredientsArray.length; i += 2) {
+                            ingredientsMap.set(ingredientsArray[i], parseFloat(ingredientsArray[i + 1]));
+                        }
+
+                        return Object.fromEntries(ingredientsMap);
+                    } 
+                    else {
+                        return value;
+                    }
+                }
+            });
+
+            this.db.insert(records, (err, newDocs) => {
+                if (err) {
+                    console.error('Error seeding database from CSV:', err);
+                    reject(err);
+                } 
+                else {
+                    console.log(`Inserted ${newDocs.length} documents from CSV file`);
+                    resolve();
+                }
             });
         });
     }

@@ -1,12 +1,28 @@
 class MenuItem {
-    constructor(name) {
+    constructor(name, ingredients, price, recipe) {
         //declaring variables for the menu item
         this.name = name;
-        this.ingredients = new Map([[null, 0]]);
-        this.price = 0.0;
-        this.recipe = "";
+        this.ingredients = ingredients;
+        this.price = price;
+        this.recipe = recipe;
     }
     
+    convertImported(products) {
+        const convertedIngredients = new Map();
+
+        for (const [ingredientName, quantity] of Object.entries(this.ingredients)) {
+            const product = products.find(p => p.productName === ingredientName);
+            if (product) {
+                convertedIngredients.set(product, quantity);
+            } else {
+                console.warn(`Product "${ingredientName}" not found in the products list.`);
+                convertedIngredients.set(ingredientName, quantity);
+            }
+        }
+
+        this.ingredients = convertedIngredients;
+    }
+
     // Getters
     // this function retrieves the name of the menu item
     getName() {
