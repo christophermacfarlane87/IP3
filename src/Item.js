@@ -31,3 +31,5 @@ class Item {
         this.measure = measure;
     }
 }
+
+module.exports = Item;

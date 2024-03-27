@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "bootstrap": "^5.3.3",
+    "csv-parse": "^5.5.5",
     "expres": "^0.0.5",
     "express": "^4.18.3",
     "gray-nedb": "^1.8.3",

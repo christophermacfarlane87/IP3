@@ -22,3 +22,5 @@ class VoiceOrder {
         this.transcription = transcription;
     }
 }
+
+module.exports = VoiceOrder;

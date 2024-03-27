@@ -67,6 +67,8 @@ class Basket {
     }
 }
 
+module.exports = Basket;
+
 /* // Example usage:
 const myBasket = new Basket();
 myBasket.setProductId(123);

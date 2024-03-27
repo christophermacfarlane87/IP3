@@ -26,6 +26,8 @@ class StockCount {
     }
 }
 
+module.exports = StockCount;
+
 /* // Example Usage
 const stockCount = new StockCount;
 stockCount.setProducts(new Product, new Product, new Product);
