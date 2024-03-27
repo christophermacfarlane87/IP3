@@ -1,0 +1,110 @@
+Sage,fruit-veg,1.99,100,19.9,fresh herb great for Italian sauces,,1000
+Rosemary,fruit-veg,1.99,100,19.9,fresh herb great for Italian sauces,,1000
+Thyme,fruit-veg,1.99,100,19.9,Roasted earthy flavours.,,1000
+Parsley,fruit-veg,1.99,100,19.9,Goes with nearly everything.,,1000
+Mint,fruit-veg,1.99,100,19.9,Great for Mexican or cocktails.,,1000
+Oregano,fruit-veg,1.99,100,19.9,The Italian herb perfect for pizzas and pasta.,,1000
+Bay leaves,fruit-veg,1.99,100,19.9,Great when slow cooking bolognese.,,1000
+Carrots,fruit-veg,0.5,500,2,Britains favourite an all round veg.,,1000
+Parsnip,fruit-veg,0.5,500,2,Perfect when roasted.,,1000
+New Potatoes,fruit-veg,1,1000,1,Boiled or roast these are great.,,1000
+Jacket Potato,fruit-veg,25,10000,2.5,Best for baked potatoes.,,1000
+Maris piper Potato,fruit-veg,25,10000,2.5,Great for mash or roast potatoes.,,1000
+Red pepper,fruit-veg,0.5,500,1,Traditional crispy peppers.,,1000
+Green pepper,fruit-veg,0.5,500,1,Traditional crispy peppers.,,1000
+Yellow pepper,fruit-veg,0.5,500,1,Traditional crispy peppers.,,1000
+Red chillies,fruit-veg,0.5,500,1,Spicy nuggets of flavour.,,1000
+Green chillies,fruit-veg,0.5,500,1,Spicy nuggets of flavour.,,1000
+Cherry tomatoes,fruit-veg,0.5,500,1,Bursting with flavour great on salads or roasted i,,1000
+Plum tomatoes,fruit-veg,0.5,500,1,"Sweet, fresh and great for sauces and salads.",,1000
+Button mushroom,fruit-veg,0.5,500,1,Classic multi-purpose mushroom.,,1000
+Chestnut mushroom,fruit-veg,0.5,500,1,Best when fried of in risotto or sauces ,,1000
+Portobello mushroom,fruit-veg,0.5,500,1,Great when stuffed with blue cheese or grilled wit,,1000
+Butternut squash ,fruit-veg,1.5,1500,1,Great for winter soups or roasted.,,1000
+Pumpkin,fruit-veg,1.5,1000,1.5,Great for winter soups or roasted.,,1000
+Sweet potato,fruit-veg,0.5,500,1,Lighter sweeter alternative to potato.,,1000
+Broccolli ,fruit-veg,0.5,500,1,Fresh greens starchy and filling.,,1000
+Tenderstem broccolli,fruit-veg,0.5,500,1,Fresh greens starchy and filling.,,1000
+Green beans ,fruit-veg,0.5,500,1,Great with fish or meat.,,1000
+Asparagus,fruit-veg,0.5,200,2.5,Fresh spring time greens.,,1000
+Chicken breast ,Fresh-meat,5,200,25,Fresh chicken breast average size 200g.,,1000
+Ribeye,Fresh-meat,7,2,17.5,Aged 35 days 200g Ribeye steaks.,,1000
+Fillet,Fresh-meat,7,2,17.5,Aged 35 days 200g Fillet steaks.,,1000
+Sirloin,Fresh-meat,7,2,17.5,Aged 35 days 200g Sirloin steaks.,,1000
+Pork Links,Fresh-meat,7,1000,7,Fresh pork links 80% meat. ,,1000
+Pork Loin,Fresh-meat,7,1000,7,Farm fresh Pork loin,,1000
+Diced Beef,Fresh-meat,7,1000,7,Diced Beef 5 percent fat great for casseroles and ,,1000
+Bacon,Fresh-meat,12,1200,10,Unsmoked Back bacon for breakfasts.,,1000
+Haggis,Fresh-meat,7,1000,7,Scottish haggis Great for Burns Night!,,1000
+Black Pudding,Fresh-meat,7,1000,7,Stornaway Britains finest Black pudding,,1000
+Veal,Fresh-meat,30,5000,6,Finest side of veal great when tenderised and seal,,1000
+Lorne Sausage,Fresh-meat,7,1000,7,Classic Scottish Square Sausage,,1000
+Seabass,Fish,1,1,5,Finest locally sourced Scottish Seabass,,1000
+Salmon,Fish,20,1500,13.3,Sustainable Scottish Salmon side,,1000
+Smoked Salmon,Fish,30,1200,25,Cold smoked side of Scottish Salmon,,1000
+Scallops,Fish,20,1000,20,Scallops Roe on Fresh. ,,1000
+King Prawn,Fish,18,1000,18,Fresh Whole King Prawns,,1000
+Sardines,Fish,7,1000,7,Whole fresh Sardines Head on. ,,1000
+Sole,Fish,6,1,6,Whole Sole gutted Head on.,,1000
+Monkfish,Fish,4,2,20,200g Monkfish fillet trimmed. ,,1000
+Mussels,Fish,8,5000,1.6,Fresh locally sourced net of Mussels,,1000
+Clams,Fish,8,5000,1.6,Fresh Scottish Clams ,,1000
+Cockles,Fish,8,5000,1.6,Scottish Fresh Cockles,,1000
+Langoustines,Fish,12,1000,12,Fresh Langoustines Sustainably sourced ,,1000
+Crayfish Tails,Fish,18,500,36,Crayfish tails in brine.,,1000
+Haddock,Fish,2,1,8,Sustainable Scottish Haddock Fillets ,,1000
+Cod,Fish,2,1,8,Sustainable Scottish Cod Fillets ,,1000
+Calamari,Fish,4,1000,4,Whole Squid tubes cleaned no tentacles,,1000
+Peas,Frozen,1,500,2,Frozen Garden peas,,1000
+Blackberries,Frozen,1.5,500,3,Ripe frozen Blackberries,,1000
+Frozen Strawberries,Frozen,1.5,500,3,Ripe frozen Strawberries,,1000
+Ice cream Vanilla,Frozen,25,5000,5,Luxury Italian Vanilla Ice cream ,,1000
+Ice Cream Chocolate,Frozen,25,5000,5,Luxury Italian Chocolate Ice cream ,,1000
+Ice cream Strawberry,Frozen,25,5000,5,Luxury Italian Strawberry Ice cream ,,1000
+Ice Cream Tablet,Frozen,25,5000,5,Luxury Italian Tablet Ice cream ,,1000
+Milk semi-skimmed,Dairy,2,2000,1,Fresh locally sourced Semi-skimmed milk,,1000
+Milk Full-Fat,Dairy,2,2,1,Fresh locally sourced full fat milk,,1000
+Milk skimmed,Dairy,2,2000,1,Fresh locally sourced skimmed milk,,1000
+Single Cream,Dairy,2,250,8,British farmed Single Cream,,1000
+Double Cream,Dairy,2,250,8,British farmed Double Cream,,1000
+Mascarpone,Dairy,2.5,250,10,Soft creamy Italian cheese,,1000
+Ricotta,Dairy,2.5,250,10,Italian soft cheese.,,1000
+Parmesan,Dairy,3.5,200,17.5,Full flavoured Italian Hard Cheese ,,1000
+Chedder,Dairy,3.5,200,17.5,Classic British mature chedder,,1000
+Goats cheese,Dairy,4.25,250,17,Semi soft goats cheese.,,1000
+Brie,Dairy,2.5,250,10,Creamy French Brie,,1000
+Camembert,Dairy,2.5,250,10,Rich full flavoured French soft cheese,,1000
+Greek yoghurt,Dairy,2.5,250,10,Greek full fat natural yoghurt,,1000
+Salt,Drystore,5,5000,1,Sodium Chloride,,1000
+Pepper,Drystore,5,2000,2.5,Cracked Black Pepper,,1000
+Cajun Spice,Drystore,2.5,300,7.5,fajitas are great with this fiery spice.,,1000
+Curry Powder,Drystore,2.5,300,7.5,curry powder.,,1000
+Flour,Drystore,25,25000,1,plain white baking flour.,,1000
+White sugar,Drystore,3.5,2000,1.75,white caster sugar,,1000
+Brown sugar,Drystore,3.5,2000,1.75,Medium soft brown sugar.,,1000
+Baked Beans,Drystore,2.5,2500,1,Baked beans in tomato sauce,,1000
+Cannellini beans,Drystore,2.5,800,3,Italian white beans,,1000
+Tinned Tomatoes,Drystore,3,3000,1,Tinned tomatoes in tomato juice.,,1000
+Tinned Pineapples ,Drystore,2.5,2500,1,Tinned Pineapple rings ,,1000
+Golden Syrup,Drystore,15,5000,3,Sticky Golden syrup great for baking.,,1000
+Vanilla Cheesecake ,Desserts,24,12,2,Simply set vanilla cheesecake,,1000
+Chocolate Brownie,Desserts,24,12,2,Sticky Chocolate Brownie.,,1000
+Profiteroles,Desserts,15,5,3.5,Whipped cream filled Pastry topped with Chocolate Ganache.,,1000
+Flapjacks,Desserts,12,1000,12,Oats raisins and golden syrup ,,1000
+Sticky Toffee,Desserts,24,24,24,Sticky pudding with rich toffee sauce.,,1000
+Meringue nests,Desserts,30,60,30,White baked French Meringue nests,,1000
+Cannoli,Desserts,10,1000,10,Italian biscuit wafer.,,1000
+Tiramisu,Desserts,20,5000,4,Sponge soaked in coffee and layered with Mascarpone,,1000
+Sourdough,Bakery,1.5,1,3,crusty Sourdough bread.,,1000
+White Loaf,Bakery,1.5,1,3,White unsliced bread.,,1000
+Brown loaf,Bakery,1.5,1,3,Brown unsliced Bread,,1000
+Brioche Burger bun,Bakery,6,24,6,Soft baked French Brioche.,,1000
+Hot dog bun,Bakery,12,24,12,Home run for the BBQ.,,1000
+Pizza Dough,Bakery,50,5000,10,Fresh sour dough pizza pucks,,1000
+Croissants,Bakery,4,12,4,part baked French Croissants,,1000
+Pan aux Chocolate,Bakery,4,12,4,Part baked French pan aux chocolate,,1000
+Doughnuts,Bakery,4,12,4,Fresh sugar dipped doughnuts,,1000
+Soft Morning Rolls,Bakery,6,12,6,Soft baked morning.,,1000
+green tea,Drystore,1.25,200,5.25,fresh green tea,NULL,1000
+meatballs,Fresh meat,1.25,200,5.25,handmade meatballs in tomato sauce,NULL,1000
+tinned tomatoes,Drystore,1.25,200,5.25,tinned tomatoes in tomato sauce,NULL,1000
