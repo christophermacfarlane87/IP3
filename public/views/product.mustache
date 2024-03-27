@@ -7,13 +7,15 @@
     <div class="card">
         <div class="card-body">
             <h4 class="card-title">Product Record</h4>
-            <p class="card-text">Product name: {{product_name}}</p>
-            <p class="card-text">Product type: {{product_type}}</p>
-            <p class="card-text">Price per pack: {{price_per_pack}}</p>
-            <p class="card-text">Pack size: {{pack_size}}</p>
-            <p class="card-text">Price per kg: {{price_per_kg}}</p>
-            <p class="card-text">Product description: {{product_description}}</p>
-            <p class="card-text">Supplier: {{supplier}}</p>
+            <img src="../Images/{{productName}}.jpg" alt="{{productName}}">
+            <p class="card-text">Product name: {{productName}}</p>
+            <p class="card-text">Product type: {{productType}}</p>
+            <p class="card-text">Price per pack: {{pricePerPack}}</p>
+            <p class="card-text">Pack size: {{packSize}}</p>
+            <p class="card-text">Price per kg: {{pricePerKg}}</p>
+            <p class="card-text">Product description: {{productDescription}}</p>
+            <p class="card-text">Holding Value: {{holdingValue}}</p>
+            <p class="card-text">Amount in Stock: {{amountInStock}}</p>
         </div>
     </div>
     {{/products}} 

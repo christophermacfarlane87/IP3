@@ -50,8 +50,8 @@ app.get('/login', (req, res) => {
 	res.render('Login', { pageTitle: 'Staff Login Page' }); 
 });
 
-
 app.get('/:productType', (req, res) => {
+	// Checks URL and sets productType (e.g. localhost:3000/bakery -> productType = bakery)
 	const productType = req.params.productType;
 	displayProductPage(productType, req, res);
 });
