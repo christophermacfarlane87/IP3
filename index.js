@@ -50,7 +50,7 @@ app.get('/bakery', (req, res) => {
     } else {
       console.log('Products:', products); 
 
-      res.render('bakery', { products: products }); 
+      res.render('product', { products: products }); 
     }
   });
 });
@@ -64,7 +64,7 @@ app.get('/drystore', (req, res) => {
     } else {
       console.log('Products:', products); 
 
-      res.render('drystore', { products: products }); 
+      res.render('product', { products: products }); 
     }
   });
 });
@@ -78,7 +78,7 @@ app.get('/fruitVeg', (req, res) => {
     } else {
       console.log('Products:', products); 
 
-      res.render('fruitVeg', { products: products }); 
+      res.render('product', { products: products }); 
     }
   });
 });
@@ -91,7 +91,7 @@ app.get('/desserts', (req, res) => {
     } else {
       console.log('Products:', products); 
 
-      res.render('desserts', { products: products }); 
+      res.render('product', { products: products }); 
     }
   });
 });
@@ -104,7 +104,7 @@ app.get('/dairy', (req, res) => {
     } else {
       console.log('Products:', products); 
 
-      res.render('dairy', { products: products }); 
+      res.render('product', { products: products }); 
     }
   });
 });
@@ -117,7 +117,7 @@ app.get('/frozen', (req, res) => {
     } else {
       console.log('Products:', products); 
 
-      res.render('frozen', { products: products }); 
+      res.render('product', { products: products }); 
     }
   });
 });
@@ -131,7 +131,7 @@ app.get('/fish', (req, res) => {
     } else {
       console.log('Products:', products); 
 
-      res.render('fish', { products: products }); 
+      res.render('product', { products: products }); 
     }
   });
 });
@@ -145,7 +145,7 @@ app.get('/freshMeat', (req, res) => {
     } else {
       console.log('Products:', products); 
 
-      res.render('freshMeat', { products: products }); 
+      res.render('product', { products: products }); 
     }
   });
 });
