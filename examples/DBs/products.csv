@@ -1,6 +1,7 @@
 Sage,fruitVeg,1.99,100,19.9,fresh herb great for Italian sauces,,1000
+Basil,fruitVeg,1.99,100,19.9,fresh herb great for Italian sauces,,1000
 Rosemary,fruitVeg,1.99,100,19.9,fresh herb great for Italian sauces,,1000
-Thyme,fruitVeg,1.99,100,19.9,Roasted earthy flavours.,,1000
+1Thyme,fruitVeg,1.99,100,19.9,Roasted earthy flavours.,,1000
 Parsley,fruitVeg,1.99,100,19.9,Goes with nearly everything.,,1000
 Mint,fruitVeg,1.99,100,19.9,Great for Mexican or cocktails.,,1000
 Oregano,fruitVeg,1.99,100,19.9,The Italian herb perfect for pizzas and pasta.,,1000
@@ -18,8 +19,8 @@ Green chillies,fruitVeg,0.5,500,1,Spicy nuggets of flavour.,,1000
 Cherry tomatoes,fruitVeg,0.5,500,1,Bursting with flavour great on salads or roasted i,,1000
 Plum tomatoes,fruitVeg,0.5,500,1,"Sweet, fresh and great for sauces and salads.",,1000
 Button mushrooms,fruitVeg,0.5,500,1,Classic multi-purpose mushroom.,,1000
-Chestnut mushroom,fruitVeg,0.5,500,1,Best when fried of in risotto or sauces,,1000
-Portobello mushroom,fruitVeg,0.5,500,1,Great when stuffed with blue cheese or grilled wit,,1000
+Chestnut mushrooms,fruitVeg,0.5,500,1,Best when fried of in risotto or sauces,,1000
+Portobello mushrooms,fruitVeg,0.5,500,1,Great when stuffed with blue cheese or grilled wit,,1000
 Butternut squash,fruitVeg,1.5,1500,1,Great for winter soups or roasted.,,1000
 Pumpkin,fruitVeg,1.5,1000,1.5,Great for winter soups or roasted.,,1000
 Sweet potatoes,fruitVeg,0.5,500,1,Lighter sweeter alternative to potato.,,1000
@@ -107,3 +108,12 @@ Doughnuts,bakery,4,12,4,Fresh sugar dipped doughnuts,,1000
 Soft morning rolls,bakery,6,12,6,Soft baked morning.,,1000
 Green tea,dryStore,1.25,200,5.25,fresh green tea,NULL,1000
 Meatballs,freshMeat,1.25,200,5.25,handmade meatballs in tomato sauce,NULL,1000
+Arborio Rice,dryStore,1.25,200,5.25,Italian short-grain rice, named after the town of Arborio,NULL,1000
+Pasta,dryStore,1.25,200,5.25,Plain and simple pasta.,NULL,1000
+Flour tortillas,dryStore,1.25,200,5.25,Tortilla made using flour instead of corn.,NULL,1000
+Lime wedges,fruitVeg,0.5,500,1,Precut lime wedges.,,1000
+Fresh mozzarella,dairy,2.5,250,10,Italian soft cheese.,,1000
+Olive oil,dryStore,1.25,200,5.25,Oil squeezed mechanically from olives.,NULL,1000
+Balsamic vinegar,dryStore,1.25,200,5.25,Vinegar aged in the Balsamico reigon of Italy.,NULL,1000
+Bananas,fruitVeg,0.5,500,1,B A N A N A.,,1000
+Butter,dairy,2.5,250,10,Churned from cream.,,1000
