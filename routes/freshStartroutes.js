@@ -5,6 +5,7 @@ const controller = require('../controllers/freshStartControllers.js');
 //const {verify} = require('../auth/auth')
 
 router.get('/stock', controller.stock);
+router.get('/', controller.landingPage);
 router.get('/sales', controller.sales);
 router.get('/menu', controller.menu);
 router.get('/login', controller.show_login);
