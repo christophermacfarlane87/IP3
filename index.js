@@ -75,7 +75,7 @@ productsDB.downloadCSV("https://raw.githubusercontent.com/christophermacfarlane8
 		// Turn the NeDB of ingredients into instances of the product class
 		productsDB.classify(Product).then(instances => {
 			products = instances;
-			
+
 			// Import Menu after products have been imported
 			menuDB.downloadCSV("https://raw.githubusercontent.com/christophermacfarlane87/IP3/main/examples/DBs/menu.csv", Object.keys(new MenuItem()))
 				.then(() => {
