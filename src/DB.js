@@ -30,7 +30,7 @@ class DB {
         });
     }
 
-    importCSV(filePath, columnDef) {
+    localCSV(filePath, columnDef) {
         return new Promise((resolve) => {
             const csvData = fs.readFileSync(filePath, 'utf8');
             this.importFromCSV(csvData, columnDef);
