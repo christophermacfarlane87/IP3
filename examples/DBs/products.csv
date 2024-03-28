@@ -106,14 +106,14 @@ Croissants,bakery,4,12,4,part baked French Croissants,,1000
 Pan aux chocolate,bakery,4,12,4,Part baked French pan aux chocolate,,1000
 Doughnuts,bakery,4,12,4,Fresh sugar dipped doughnuts,,1000
 Soft morning rolls,bakery,6,12,6,Soft baked morning.,,1000
-Green tea,dryStore,1.25,200,5.25,fresh green tea,NULL,1000
-Meatballs,freshMeat,1.25,200,5.25,handmade meatballs in tomato sauce,NULL,1000
-Arborio Rice,dryStore,1.25,200,5.25,Italian short-grain rice named after the town of Arborio.,NULL,1000
-Pasta,dryStore,1.25,200,5.25,Plain and simple pasta.,NULL,1000
-Flour tortillas,dryStore,1.25,200,5.25,Tortilla made using flour instead of corn.,NULL,1000
+Green tea,dryStore,1.25,200,5.25,fresh green tea,,1000
+Meatballs,freshMeat,1.25,200,5.25,handmade meatballs in tomato sauce,,1000
+Arborio Rice,dryStore,1.25,200,5.25,Italian short-grain rice named after the town of Arborio.,,1000
+Pasta,dryStore,1.25,200,5.25,Plain and simple pasta.,,1000
+Flour tortillas,dryStore,1.25,200,5.25,Tortilla made using flour instead of corn.,,1000
 Lime wedges,fruitVeg,0.5,500,1,Precut lime wedges.,,1000
 Fresh mozzarella,dairy,2.5,250,10,Italian soft cheese.,,1000
-Olive oil,dryStore,1.25,200,5.25,Oil squeezed mechanically from olives.,NULL,1000
-Balsamic vinegar,dryStore,1.25,200,5.25,Vinegar aged in the Balsamico reigon of Italy.,NULL,1000
+Olive oil,dryStore,1.25,200,5.25,Oil squeezed mechanically from olives.,,1000
+Balsamic vinegar,dryStore,1.25,200,5.25,Vinegar aged in the Balsamico reigon of Italy.,,1000
 Bananas,fruitVeg,0.5,500,1,B A N A N A.,,1000
 Butter,dairy,2.5,250,10,Churned from cream.,,1000
