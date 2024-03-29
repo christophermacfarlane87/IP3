@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const controller = require('../controllers/freshStartControllers.js');
+const controller = require('../controllers/freshStartController');
 //const {login} = require('../auth/auth')
 //const {verify} = require('../auth/auth')
 
@@ -9,8 +9,9 @@ router.get('/', controller.landingPage);
 router.get('/sales', controller.sales);
 router.get('/menu', controller.menu);
 router.get('/login', controller.show_login);
-router.get('/orders', controller.orders);
-router.get('/freshMeat', controller.freshMeat);
+router.get('/order', controller.order);
+router.get('/:productType',controller.productType);
+/*router.get('/freshMeat', controller.freshMeat);
 router.get('/fish', controller.fish);
 router.get('/frozen', controller.frozen);
 router.get('/dairy', controller.dairy);
@@ -20,7 +21,7 @@ router.get('/desserts', controller.desserts);
 router.get('/bakery', controller.bakery);
 router.get('/logout', controller.logout);
 router.get('/register', controller.register);
-
+*/
 router.use(function(req, res) {
     res.status(404);
     res.type('text/plain');

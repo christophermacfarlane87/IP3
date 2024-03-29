@@ -1,14 +1,29 @@
+const express = require('express');
+const app = express();
 const DB = require('./src/DB');
 const Product = require('./src/Product');
 const MenuItem = require('./src/MenuItem');
 const CustOrder = require('./src/CustOrder');
 
-const express = require('express');
-const mustacheExpress = require('mustache-express');
 const path = require('path');
-const bodyParser = require('body-parser'); 
+const public = path.join(__dirname,'public');
+app.set('views', path.join(__dirname, 'public', 'views'));
+app.use(express.static(public));
 
-const app = express();
+app.use('/css', express.static(__dirname +'/css/styles.css'));
+
+const mustacheExpress = require('mustache-express');
+app.engine('mustache', mustacheExpress());
+app.set('view engine', 'mustache');
+
+const router = require('./routes/freshStartroutes');
+app.use('/', router);
+
+const bodyParser = require('body-parser'); 
+app.use(bodyParser.urlencoded({ extended: true }));
+
+
+
 
 // Setting object arrays
 let productsDB = new DB();
@@ -20,17 +35,29 @@ let menuItems;
 let custOrdersDB = new DB();
 let custOrders;
 
+/*
+function displayProductPage(productType, req, res) {
+	const filteredProducts = products.filter(product => product.productType === productType);
+
+	if (filteredProducts.length === 0) {
+		console.error(`Error retrieving products: ${productType}`);
+		res.status(500).send(`An error occurred while retrieving: ${productType}`);
+	} 
+	else {
+		console.log(`${productType}:`, filteredProducts);
+		res.render('product', { products: filteredProducts });
+	}
+}*/
 // Configuration for Mustache templates
-app.engine('mustache', mustacheExpress());
-app.set('view engine', 'mustache');
-app.set('views', path.join(__dirname, 'public', 'views'));
+
+//app.set('views', path.join(__dirname, 'public', 'views'));
 
 // Serving static files
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(bodyParser.urlencoded({ extended: true }));
+//app.use(express.static(path.join(__dirname, 'public')));
+
 
 // Routing
-app.get('/', (req, res) => {
+/*app.get('/', (req, res) => {
 	res.render('index', {  }); 
 });
 
@@ -56,6 +83,7 @@ app.get('/:productType', (req, res) => {
 	displayProductPage(productType, req, res);
 });
 
+
 function displayProductPage(productType, req, res) {
 	const filteredProducts = products.filter(product => product.productType === productType);
 
@@ -67,8 +95,7 @@ function displayProductPage(productType, req, res) {
 		console.log(`${productType}:`, filteredProducts);
 		res.render('product', { products: filteredProducts });
 	}
-}
-
+}*/
 // Import ingredients from a remote URL
 productsDB.downloadCSV("https://raw.githubusercontent.com/christophermacfarlane87/IP3/main/examples/DBs/products.csv", Object.keys(new Product()))
 	.then(() => {
