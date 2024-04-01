@@ -1,15 +1,58 @@
+const DB = require('../src/DB');
+const Product = require('../src/Product');
+const MenuItem = require('../src/MenuItem');
+const CustOrder = require('../src/CustOrder');
 
-/*const DBDAO = require("../models/DB");
-const basketDao = require("../src/Basket.js");
-const CustOrderDao = require("../src/CustOrder.js");
-const itemDao = require("../src/item.js");
-const MenuItemDao = require("../src/MenuItem.js");
-const PredictionDao = require("../src/Prediction.js");
-const ProductDao = require("../src/Basket.js");
-const basketDao = require("../src/StockCount.js");
+// Setting object arrays
+let productsDB = new DB();
+let products; // Array of Product objects
 
-const db = new DBDAO();
-*/
+let menuDB = new DB();
+let menuItems; // Array of Menu objects
+
+let custOrdersDB = new DB();
+let custOrders; // Array of Order objects
+
+// Import ingredients from a remote URL
+productsDB.downloadCSV("https://raw.githubusercontent.com/christophermacfarlane87/IP3/main/examples/DBs/products.csv", Object.keys(new Product()))
+	.then(() => {
+		// Turn the NeDB of ingredients into instances of the product class
+		productsDB.classify(Product).then(instances => {
+			products = instances;
+
+			// Import Menu after products have been imported
+			menuDB.downloadCSV("https://raw.githubusercontent.com/christophermacfarlane87/IP3/main/examples/DBs/menu.csv", Object.keys(new MenuItem()))
+				.then(() => {
+					menuDB.classify(MenuItem).then(instances => {
+						menuItems = instances.map((instance) => {
+							instance.convertImported(products);
+							return instance;
+						  });
+					});
+
+					// Import Cust orders after menu has been imported
+					custOrdersDB.downloadCSV("https://raw.githubusercontent.com/christophermacfarlane87/IP3/main/examples/DBs/orders.csv", Object.keys(new CustOrder()))
+					.then(() => {
+						custOrdersDB.classify(CustOrder).then(instances => {
+							custOrders = instances.map((instance) => {
+								instance.convertImported(menuItems);
+								return instance;
+							  });
+						});
+					})
+					.catch((err) => {
+						console.error('Error importing or finding documents:', err);
+					})
+
+				})
+				.catch((err) => {
+					console.error('Error importing or finding documents:', err);
+				})
+		});
+	})
+	.catch((err) => {
+		console.error('Error importing or finding documents:', err);
+	})
 
 exports.landingPage = function (req, res) {
     res.render("index");
@@ -27,45 +70,26 @@ exports.menu = function (req, res) {
 exports.show_login = function (req, res) {
     res.render("login");
   };
-exports.order = function (req, res) {
-    res.render("order");
+exports.orders = function (req, res) {
+    res.render("orders");
   };
+
 exports.productType = function (req, res){
-    // Checks URL and sets productType (e.g. localhost:3000/bakery -> productType = bakery)
-	const productType = req.params.productType;
+  // Checks URL and sets productType (e.g. localhost:3000/bakery -> productType = bakery)
+  const productType = req.params.productType;
+
+  console.log(productType);
 	displayProductPage(productType, req, res);
-  }
-exports.freshMeat = function (req, res) {
-    res.render("");
-  };
-exports.fish = function (req, res) {
-    res.render("user/login");
-  };
-exports.frozen = function (req, res) {
-    res.render("user/login");
-  };
-exports.dairy = function (req, res) {
-    res.render("user/login");
-  };
-exports.fruitVeg = function (req, res) {
-    res.render("user/login");
-  };
-exports.dryStore = function (req, res) {
-    res.render("user/login");
-  };
-exports.desserts = function (req, res) {
-    res.render("user/login");
-  };
-exports.bakery = function (req, res) {
-    res.render("user/login");
-  };
+}
+
 exports.logout = function (req, res) {
     res.render("user/login");
   };
 exports.register = function (req, res) {
     res.render("user/login");
   };
-  function displayProductPage(productType, req, res) {
+
+function displayProductPage(productType, req, res) {
     const filteredProducts = products.filter(product => product.productType === productType);
   
     if (filteredProducts.length === 0) {
@@ -76,4 +100,4 @@ exports.register = function (req, res) {
       console.log(`${productType}:`, filteredProducts);
       res.render('product', { products: filteredProducts });
     }
-  }
+}

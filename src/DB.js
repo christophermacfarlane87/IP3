@@ -91,6 +91,22 @@ class DB {
         });
     }
 
+    exportCSV(classArray) {
+        // TODO
+    }
+
+    exportNEDB(classArray) {
+        // TODO
+    }
+
+    localBackup(classArray, type) {
+        // TODO
+    }
+
+    cloudBackup(classArray, type) {
+        // TODO
+    }
+
     findAll(callback) {
         this.db.find({}, callback);
     }
