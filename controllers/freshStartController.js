@@ -18,14 +18,14 @@ let stockCountDB = new DB();
 let stockCount; // Array of Order objects
 
 // Import ingredients from a remote URL
-productsDB.localCSV("https://raw.githubusercontent.com/christophermacfarlane87/IP3/main/examples/DBs/products.csv").then(() => {
+productsDB.downloadCSV("https://raw.githubusercontent.com/christophermacfarlane87/IP3/main/examples/DBs/products.csv").then(() => {
 	// Turn the NeDB of ingredients into instances of the product class
 	productsDB.classify(Product).then(instances => {
 		products = instances;
 	});
 
 	// Import Menu after products have been imported
-	menuDB.localCSV("https://raw.githubusercontent.com/christophermacfarlane87/IP3/main/examples/DBs/menu.csv").then(() => {
+	menuDB.downloadCSV("https://raw.githubusercontent.com/christophermacfarlane87/IP3/main/examples/DBs/menu.csv").then(() => {
 		menuDB.classify(MenuItem).then(instances => {
 			menuItems = instances.map((item) => {
 				item.convertImported(products);
@@ -34,7 +34,7 @@ productsDB.localCSV("https://raw.githubusercontent.com/christophermacfarlane87/I
 		});
 
 		// Import Cust orders after menu has been imported
-		custOrdersDB.localCSV("https://raw.githubusercontent.com/christophermacfarlane87/IP3/main/examples/DBs/orders.csv").then(() => {
+		custOrdersDB.downloadCSV("https://raw.githubusercontent.com/christophermacfarlane87/IP3/main/examples/DBs/orders.csv").then(() => {
 			custOrdersDB.classify(CustOrder).then(instances => {
 				custOrders = instances.map((order) => {
 					order.convertImported(menuItems);
@@ -43,7 +43,7 @@ productsDB.localCSV("https://raw.githubusercontent.com/christophermacfarlane87/I
 			});
 
 			// Import latest Stock count after cust orders have been imported
-			stockCountDB.localCSV("https://raw.githubusercontent.com/christophermacfarlane87/IP3/main/examples/DBs/stock.csv").then(() => {
+			stockCountDB.downloadCSV("https://raw.githubusercontent.com/christophermacfarlane87/IP3/main/examples/DBs/stock.csv").then(() => {
 				// Find the largest DB key (date) to set the most recent stock count
 				let largestKey = null;
 
