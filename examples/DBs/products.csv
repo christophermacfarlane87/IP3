@@ -1,7 +1,8 @@
+productName,productType,pricePerPack,packSize,pricePerKg,productDescription,holdingValue,parLevel
 Sage,fruitVeg,1.99,100,19.9,fresh herb great for Italian sauces,,1000
 Basil,fruitVeg,1.99,100,19.9,fresh herb great for Italian sauces,,1000
 Rosemary,fruitVeg,1.99,100,19.9,fresh herb great for Italian sauces,,1000
-1Thyme,fruitVeg,1.99,100,19.9,Roasted earthy flavours.,,1000
+Thyme,fruitVeg,1.99,100,19.9,Roasted earthy flavours.,,1000
 Parsley,fruitVeg,1.99,100,19.9,Goes with nearly everything.,,1000
 Mint,fruitVeg,1.99,100,19.9,Great for Mexican or cocktails.,,1000
 Oregano,fruitVeg,1.99,100,19.9,The Italian herb perfect for pizzas and pasta.,,1000

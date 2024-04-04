@@ -8,7 +8,7 @@ class Product {
         this.pricePerKg = ppKg;
         this.productDescription = desc;
         this.holdingValue = holdVal;
-        this.amountInStock = amount;
+        this.parLevel = amount;
     }
 
     // Getters
@@ -48,8 +48,8 @@ class Product {
     }
 
     // should this be here or in the Stock Class? Calum
-    getAmountInStock() {
-        return this.amountInStock;
+    getParLevel() {
+        return this.parLevel;
     }
 
     // Setters
@@ -89,9 +89,9 @@ class Product {
     }
 
     // should this be here or in the Stock Class? Calum
-    setAmountInStock(newStock) {
+    setParLevel(newLevel) {
         // Var is an array, possibly have setter insert into a single element
-        this.amountInStock = newStock;
+        this.parLevel = newLevel;
     }
     
     // this method recieves variables from a form on the webpage and updates a product on the database

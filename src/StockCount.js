@@ -1,28 +1,34 @@
 class StockCount {
-    constructor() {
-        this.products = [[null, 0.0, 0.0]]; // Null is of type Product, Verified amount in stock, theoretical amount in stock
-    }
-
-    addProduct(product) {
-        products.push([product, 0.0, 0.0]);
-    }
-
-    removeProduct(product) {
-        this.products = this.products.filter(products => products[0] !== product);
-    }
-
-    restartCount() {
-        products = [];
+    constructor(product, amountInStock, theoreticalInStock) {
+        this.product = product;
+        this.amountInStock = amountInStock;
+        this.theoreticalInStock = theoreticalInStock;
     }
 
     // Getter
-    getProducts() {
-        return this.products;
+    getProduct() {
+        return this.product;
+    }
+
+    getAmountInStock() {
+        return this.amountInStock;
+    }
+
+    getTheoreticalInStock() {
+        return this.theoreticalInStock;
     }
 
     // Setter
-    setProducts(newProd) {
-        this.products = newProd;
+    setProduct(product) {
+        this.product = product;
+    }
+
+    setAmountInStock(amount) {
+        this.amountInStock = amount;
+    }
+
+    setTheoreticalInStock(amount) {
+        this.theoreticalInStock = amount;
     }
 }
 

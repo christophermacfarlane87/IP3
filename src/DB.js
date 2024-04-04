@@ -9,7 +9,7 @@ class DB {
         this.db = new nedb({ inMemoryOnly: true });
     }
 
-    downloadCSV(csvUrl, columnDef) {
+    downloadCSV(csvUrl) {
         return new Promise((resolve, reject) => {
             https.get(csvUrl, (res) => {
                 let csvData = '';
@@ -19,7 +19,7 @@ class DB {
                 });
 
                 res.on('end', () => {
-                    this.importFromCSV(csvData, columnDef)
+                    this.importFromCSV(csvData)
                     .then(resolve)
                     .catch(reject);
                 });
@@ -30,19 +30,18 @@ class DB {
         });
     }
 
-    localCSV(filePath, columnDef) {
+    localCSV(filePath) {
         return new Promise((resolve) => {
             const csvData = fs.readFileSync(filePath, 'utf8');
-            this.importFromCSV(csvData, columnDef);
+            this.importFromCSV(csvData);
             resolve();
         })
-
     }
 
-    importFromCSV(csvData, columnDef) {
+    importFromCSV(csvData) {
         return new Promise((resolve, reject) => {
             const records = parse(csvData, {
-                columns: columnDef,
+                columns: true,
                 skip_empty_lines: true,
                 cast: (value, context) => {
                     if (context.column === 'ingredients' || context.column === 'items') {
@@ -106,6 +105,14 @@ class DB {
     cloudBackup(classArray, type) {
         // TODO
     }
+
+    findOne(callback) {
+        this.db.findOne({}, callback);
+    }
+	
+	findQuery(query, callback) {
+		this.db.find(query, callback);
+	}	
 
     findAll(callback) {
         this.db.find({}, callback);
