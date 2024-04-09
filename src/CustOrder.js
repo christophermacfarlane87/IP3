@@ -26,7 +26,8 @@ class CustOrder {
             const item = menuItems.find(menu => menu.name === menuItemName);
             if (item) {
                 convertedMenuItems.set(item, quantity);
-            } else {
+            } 
+            else {
                 console.warn(`Product "${menuItemName}" not found in the menu items list.`);
                 convertedMenuItems.set(menuItemName, quantity);
             }

@@ -1,18 +1,35 @@
-<section class="header-title-line">
-        <button class="menu-button">
-            <div class="menu-icon"></div> 
-        </button>
-     
-         <nav class="sub_nav">
-                <ul>
-                        <li><a href="../../Workspace/Pages/customer_update.php">Stock Count</a></li>
-                        <li><a href="../../Workspace/Pages/staff_logout.php">Sales</a></li>
-                        <li><a href="../../Workspace/Pages/add_product.php">My Menu</a></li>
-                        <li><a href="../../Workspace/Pages/add_new_staff.php">Login</a></li>
-                        <li><a href="../../Workspace/Pages/stock.php">Orders</a></li>
-                     
-                        
-                </ul>   
-                   
-        </nav>
-                </section>
+<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+	<li class="nav-item">
+		<a class="nav-link" href="./stock">Stock Count</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="./sales">Sales</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="./menu">My Menu</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="./login">Login</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="./orders">Orders</a>
+	</li>
+		<li class="nav-item dropdown">
+		<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Stock</a>
+		<ul class="dropdown-menu">
+			<li><a class="dropdown-item" href="./freshMeat">🥩 Fresh Meat</a></li>
+			<li><a class="dropdown-item" href="./fish">🐟 Fish</a></li>
+			<li><a class="dropdown-item" href="./dairy">🐮 Dairy</a></li>
+			<li><a class="dropdown-item" href="./fruitVeg">🥗 Fruit & Veg</a></li>
+			<li><a class="dropdown-item" href="./frozen">🥶 Frozen</a></li>
+			<li><a class="dropdown-item" href="./dryStore">🥫 Dry Store</a></li>
+			<li><a class="dropdown-item" href="./desserts">🍰 Desserts</a></li>
+			<li><a class="dropdown-item" href="./bakery">🍞 Bakery</a></li>
+		</ul>
+	</li>
+</ul>
+
+<form class="d-flex" role="search">
+	<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+	<button class="btn btn-outline-success" type="submit">Search</button>
+</form>

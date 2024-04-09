@@ -61,6 +61,7 @@ productsDB.downloadCSV("https://raw.githubusercontent.com/christophermacfarlane8
 					// Use findQuery to get documents with the largest key (latest date)
 					stockCountDB.findQuery({[largestKey]: { $exists: true }}, (err, docs) => {
 						stockCount = docs.map(doc => {
+							// Create a new stock count object using the product name in the csv to find the product object
 							return new StockCount(products.find(p => p.productName === doc.product), doc[largestKey], doc[largestKey]);
 						});
 					});
@@ -75,15 +76,29 @@ exports.landingPage = function (req, res) {
 }
 
  exports.stock = function (req, res) {
-    res.render("stock");
+    res.render('stock', { stock: stockCount });
 }
 
 exports.sales = function (req, res) {
-    res.render("sales");
+    // Convert items map to array of objects
+    const formattedSales = custOrders.map(order => ({
+		items: Array.from(order.items).map(([key, value]) => ({ key, value })),
+		table: order.table
+    }));
+    
+    res.render('sales', { sales: formattedSales });
 }
 
 exports.menu = function (req, res) {
-    res.render("menu");
+	// Convert items map to array of objects
+	const formattedMenu = menuItems.map(menu => ({
+		name: menu.name,
+		ingredients: Array.from(menu.ingredients).map(([key, value]) => ({ key, value })),
+		price: menu.price,
+		recipe: menu.recipe
+	}));
+
+	res.render('menu', { items: formattedMenu });
 }
 
 exports.show_login = function (req, res) {
@@ -91,14 +106,13 @@ exports.show_login = function (req, res) {
 }
 
 exports.orders = function (req, res) {
-    res.render("orders");
+    res.render('orders');
 }
 
 exports.productType = function (req, res){
-  // Checks URL and sets productType (e.g. localhost:3000/bakery -> productType = bakery)
-  const productType = req.params.productType;
+	// Checks URL and sets productType (e.g. localhost:3000/bakery -> productType = bakery)
+	const productType = req.params.productType;
 
-  console.log(productType);
 	displayProductPage(productType, req, res);
 }
 
@@ -118,15 +132,15 @@ function displayProductPage(productType, req, res) {
       res.status(500).send(`An error occurred while retrieving: ${productType}`);
     } 
     else {
-      console.log(`${productType}:`, filteredProducts);
+      //console.log(`${productType}:`, filteredProducts);
       res.render('product', { products: filteredProducts });
     }
 }
 
-setTimeout(waitPrint, 1000);
+//setTimeout(waitPrint, 1000);
 
 function waitPrint() {
-	console.log(stockCount)
+	console.log(custOrders)
 
 	// for (const [menuItem, quantity] of custOrders[0].items.entries()) {
 	// 	console.log(menuItem.ingredients);

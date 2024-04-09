@@ -1,10 +1,23 @@
 {{>head}}
 {{>header}}
-{{>nav}} 
 
 <body>
-  <p>STOCK</p>
+	<div id="indexCards">
+		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-4">
+			{{#stock}}
+				<div class="col">
+					<div class="card">
+						<img src="/Images/{{product.productName}}.jpg" class="card-img-top" alt="{{product.productName}}">
+						<div class="card-body">
+							<h5 class="card-title">{{product.productName}}</h5>
+                            <p class="card-text">Last Counted: {{amountInStock}}</p>
+                            <p class="card-text">Estimated in Stock: {{theoreticalInStock}}</p>
+						</div>
+					</div>
+				</div>
+			{{/stock}}
+		</div>
+	</div>
 </body>
 
 {{>footer}}
-</html>

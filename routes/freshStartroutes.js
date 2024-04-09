@@ -9,6 +9,7 @@ router.get('/', controller.landingPage);
 router.get('/sales', controller.sales);
 router.get('/menu', controller.menu);
 router.get('/login', controller.show_login);
+router.get('/orders', controller.orders);
 router.get('/:productType', controller.productType);
 
 router.use(function(req, res) {
