@@ -15,7 +15,7 @@ let custOrdersDB = new DB();
 let custOrders; // Array of Order objects
 
 let stockCountDB = new DB();
-let stockCount; // Array of Order objects
+let stockCount; // Array of Stock count objects
 
 // Import ingredients from a remote URL
 productsDB.downloadCSV("https://raw.githubusercontent.com/christophermacfarlane87/IP3/main/examples/DBs/products.csv").then(() => {
@@ -109,11 +109,28 @@ exports.orders = function (req, res) {
     res.render('orders');
 }
 
+exports.search = function (req, res) {
+    // Retrieve the search term from the query string
+    var productType = req.query.q;
+    let filteredProducts;
+
+	if ((filteredProducts = products.filter(product => product.productName.toLowerCase().includes(productType.toLowerCase()))) === 0) {
+		
+	}
+
+    res.render('product', { products: filteredProducts });
+}
+
 exports.productType = function (req, res){
 	// Checks URL and sets productType (e.g. localhost:3000/bakery -> productType = bakery)
 	const productType = req.params.productType;
+	let filteredProducts;
 
-	displayProductPage(productType, req, res);
+	if ((filteredProducts = products.filter(product => product.productType === productType)) === 0) { 
+		 
+	}
+
+	res.render('product', { products: filteredProducts });
 }
 
 exports.logout = function (req, res) {
@@ -122,19 +139,6 @@ exports.logout = function (req, res) {
 
 exports.register = function (req, res) {
     res.render("user/login");
-}
-
-function displayProductPage(productType, req, res) {
-    const filteredProducts = products.filter(product => product.productType === productType);
-  
-    if (filteredProducts.length === 0) {
-      console.error(`Error retrieving products: ${productType}`);
-      res.status(500).send(`An error occurred while retrieving: ${productType}`);
-    } 
-    else {
-      //console.log(`${productType}:`, filteredProducts);
-      res.render('product', { products: filteredProducts });
-    }
 }
 
 //setTimeout(waitPrint, 1000);

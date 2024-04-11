@@ -4,12 +4,13 @@ const controller = require('../controllers/freshStartController');
 //const {login} = require('../auth/auth')
 //const {verify} = require('../auth/auth')
 
-router.get('/stock', controller.stock);
 router.get('/', controller.landingPage);
+router.get('/stock', controller.stock);
 router.get('/sales', controller.sales);
 router.get('/menu', controller.menu);
 router.get('/login', controller.show_login);
 router.get('/orders', controller.orders);
+router.get('/search', controller.search);
 router.get('/:productType', controller.productType);
 
 router.use(function(req, res) {
