@@ -1,0 +1,24 @@
+{{>head}}
+{{>header}}
+
+<body>
+<section>
+<form class="register-form" method="POST" action="../../Workspace/Pages/stock.php" name="register">
+    {{#stock}}
+                <h5 class="card-title">{{product.productName}}</h5>
+                            <p class="card-text">
+                            Product type: {{product.productType}}
+                             Price per pack: {{product.price_per_pack}} 
+                             Price per KG {{product.price_per_kg}} 
+                             Pack size: {{product.pack_size}} 
+                             Last Counted: {{amountInStock}} 
+                             Estimated in Stock: {{theoreticalInStock}}
+                                <label class ="register-label" for="in_stock"> Amount in stock :</label>
+                <input class ="register-input" type="text" id="amountInStock" name="amountInStock" placeholder="{{amountInStock}}"> </p>
+                        
+                {{/stock}}
+                <input class ="btn-primary login-button" type="submit" name="submit" id="submit" value="Update">
+                </section>
+</body>
+
+{{>footer}}

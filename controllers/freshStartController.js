@@ -78,7 +78,12 @@ exports.landingPage = function (req, res) {
  exports.stock = function (req, res) {
     res.render('stock', { stock: stockCount });
 }
-
+exports.stock_count = function (req, res) {
+    res.render('stock_count', { stock: stockCount });
+}
+exports.theo_stock = function (req, res) {
+    res.render('theo_stock', { stock: stockCount });
+}
 exports.sales = function (req, res) {
     // Convert items map to array of objects
     const formattedSales = custOrders.map(order => ({

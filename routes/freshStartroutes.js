@@ -6,6 +6,8 @@ const controller = require('../controllers/freshStartController');
 
 router.get('/', controller.landingPage);
 router.get('/stock', controller.stock);
+router.get('/theo_stock', controller.theo_stock);
+router.get('/stock_count', controller.stock_count);
 router.get('/sales', controller.sales);
 router.get('/menu', controller.menu);
 router.get('/login', controller.show_login);

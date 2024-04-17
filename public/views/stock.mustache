@@ -2,22 +2,32 @@
 {{>header}}
 
 <body>
-	<div id="indexCards">
-		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-4">
-			{{#stock}}
-				<div class="col">
-					<div class="card">
-						<img src="/Images/{{product.productName}}.jpg" class="card-img-top" alt="{{product.productName}}">
-						<div class="card-body">
-							<h5 class="card-title">{{product.productName}}</h5>
-                            <p class="card-text">Last Counted: {{amountInStock}}</p>
-                            <p class="card-text">Estimated in Stock: {{theoreticalInStock}}</p>
-						</div>
-					</div>
+	<div id="indexCards"> 
+	<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-4">
+		<div class="col">
+			<div class="card">
+				<a href="./theo_stock">
+					<img src="/Images/Food_stock.jpg" class="card-img-top" alt="Current Stock">
+				</a>
+				<div class="card-body">
+					<h5 class="card-title">Stock</h5>
+					<p class="card-text">Check up on all theoretical Stock levels here.</p>
 				</div>
-			{{/stock}}
+			</div>
 		</div>
-	</div>
+
+		<div class="col">
+			<div class="card">
+				<a href="./stock_count">
+					<img src="/Images/sales.jpg" class="card-img-top" alt="Sales">
+				</a>
+				<div class="card-body">
+					<h5 class="card-title">Stock Count</h5>
+					<p class="card-text">Create a new stock count.</p>
+				</div>
+			</div>
+		</div>
+    </div>
 </body>
 
 {{>footer}}
