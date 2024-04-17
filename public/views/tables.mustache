@@ -1,0 +1,26 @@
+{{>head}}
+{{>header}}
+
+<body>
+	<div id="indexCards">
+		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-4">
+			{{#sales}}
+				<div class="col">
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">Table Number: {{table}}</h5>
+							<ul>
+								{{#items}}
+									<li>{{key.name}}: {{value}}</li>
+								{{/items}}
+							</ul>
+						</div>
+					</div>
+				</div>
+			{{/sales}}
+		</div>
+	</div>
+</body>
+
+{{>footer}}
+

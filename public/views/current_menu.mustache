@@ -1,0 +1,28 @@
+{{>head}}
+{{>header}}
+
+<body>
+	<div id="indexCards">
+		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-4">
+			{{#items}}
+				<div class="col">
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">{{name}}</h5>
+                            <p class="card-text">Ingredients:</p>
+                            <ul>
+                                {{#ingredients}}
+                                    <li>{{key.productName}}: {{value}}kg</li>
+                                {{/ingredients}}
+                            </ul>
+                            <p class="card-text">Price: {{price}}</p>
+                            <p class="card-text">Recipe: {{recipe}}</p>
+						</div>
+					</div>
+				</div>
+			{{/items}}
+		</div>
+	</div>
+</body>
+
+{{>footer}}

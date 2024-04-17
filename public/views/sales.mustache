@@ -2,25 +2,33 @@
 {{>header}}
 
 <body>
-	<div id="indexCards">
-		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-4">
-			{{#sales}}
-				<div class="col">
-					<div class="card">
-						<div class="card-body">
-							<h5 class="card-title">Table Number: {{table}}</h5>
-							<ul>
-								{{#items}}
-									<li>{{key.name}}: {{value}}</li>
-								{{/items}}
-							</ul>
-						</div>
-					</div>
+	<div id="indexCards"> 
+	<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-4">
+		<div class="col">
+			<div class="card">
+				<a href="./tables">
+					<img src="/Images/Food_stock.jpg" class="card-img-top" alt="Current Stock">
+				</a>
+				<div class="card-body">
+					<h5 class="card-title">My Tables</h5>
+					<p class="card-text">Check up on todays tables.</p>
 				</div>
-			{{/sales}}
+			</div>
 		</div>
-	</div>
+
+		<div class="col">
+			<div class="card">
+				<a href="./my_sales">
+					<img src="/Images/sales.jpg" class="card-img-top" alt="My Sales">
+				</a>
+				<div class="card-body">
+					<h5 class="card-title">My Sales</h5>
+					<p class="card-text">Adjust Sales here.</p>
+				</div>
+			</div>
+		</div>
+    </div>
+
 </body>
 
 {{>footer}}
-

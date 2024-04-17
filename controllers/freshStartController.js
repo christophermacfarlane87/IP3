@@ -84,17 +84,25 @@ exports.stock_count = function (req, res) {
 exports.theo_stock = function (req, res) {
     res.render('theo_stock', { stock: stockCount });
 }
-exports.sales = function (req, res) {
+exports.tables = function (req, res) {
     // Convert items map to array of objects
     const formattedSales = custOrders.map(order => ({
 		items: Array.from(order.items).map(([key, value]) => ({ key, value })),
 		table: order.table
     }));
     
-    res.render('sales', { sales: formattedSales });
+    res.render('tables', { sales: formattedSales });
 }
-
+exports.sales = function (req, res) {
+    res.render("sales");
+}
+exports.my_sales = function (req, res) {
+    res.render("my_sales");
+}
 exports.menu = function (req, res) {
+    res.render("menu");
+}
+exports.current_menu = function (req, res) {
 	// Convert items map to array of objects
 	const formattedMenu = menuItems.map(menu => ({
 		name: menu.name,
@@ -103,9 +111,22 @@ exports.menu = function (req, res) {
 		recipe: menu.recipe
 	}));
 
-	res.render('menu', { items: formattedMenu });
+	res.render('current_menu', { items: formattedMenu });
 }
+exports.update_menu = function (req, res) {
+	// Convert items map to array of objects
+	const formattedMenu = menuItems.map(menu => ({
+		name: menu.name,
+		ingredients: Array.from(menu.ingredients).map(([key, value]) => ({ key, value })),
+		price: menu.price,
+		recipe: menu.recipe
+	}));
 
+	res.render('update_menu', { items: formattedMenu });
+}
+exports.new_menu = function(req,res){
+	res.render("new_menu");
+}
 exports.show_login = function (req, res) {
     res.render("login");
 }

@@ -1,0 +1,34 @@
+{{>head}}
+{{>header}}
+
+<body>
+	<div id="indexCards">
+		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-4">
+			
+				<div class="col">
+					<div class="card">
+						<div class="card-body">
+                        <form>
+							<h5 class="card-title">Name:</h5><input type="text" id="productName" name="productName" placeholder=Bolognese></h5>
+                            <p class="card-text">Ingredients:
+                            <ul class="list-group">
+                                <li class="list-group-item">Ingredient<br><input type="text" id="ingredients" name="ingredients" placeholder= Spaghetti>
+                                <li class="list-group-item">Amount<br><input type="text" id="value" name="value" placeholder= 1.5kg>
+                               
+                            </ul></p>
+                            <p class="card-text">Price:<br><input type="text" id="price" name="price" placeholder=£9.99></p>
+                         	<div class="form-floating">
+ 							 <textarea class="form-control" placeholder="Recipe" id="floatingTextarea2" style="height: 100px"></textarea>
+  								<label for="floatingTextarea2">Recipe:</label>
+							</div>
+							<br>
+							<button type="submit" class="btn btn-success">Add</button>
+						</form>
+					</div>
+				</div>
+			
+		</div>
+	</div>
+</body>
+
+{{>footer}}

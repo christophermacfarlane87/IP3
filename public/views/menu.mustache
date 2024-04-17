@@ -2,27 +2,44 @@
 {{>header}}
 
 <body>
-	<div id="indexCards">
-		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-4">
-			{{#items}}
-				<div class="col">
-					<div class="card">
-						<div class="card-body">
-							<h5 class="card-title">{{name}}</h5>
-                            <p class="card-text">Ingredients:</p>
-                            <ul>
-                                {{#ingredients}}
-                                    <li>{{key.productName}}: {{value}}kg</li>
-                                {{/ingredients}}
-                            </ul>
-                            <p class="card-text">Price: {{price}}</p>
-                            <p class="card-text">Recipe: {{recipe}}</p>
-						</div>
-					</div>
+	<div id="indexCards"> 
+	<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-4">
+		<div class="col">
+			<div class="card">
+				<a href="./current_menu">
+					<img src="/Images/Food_stock.jpg" class="card-img-top" alt="Current Stock">
+				</a>
+				<div class="card-body">
+					<h5 class="card-title">My Current Menu</h5>
+					<p class="card-text">Check out your Menu recipes here.</p>
 				</div>
-			{{/items}}
+			</div>
 		</div>
-	</div>
+
+		<div class="col">
+			<div class="card">
+				<a href="./new_menu">
+					<img src="/Images/sales.jpg" class="card-img-top" alt="Sales">
+				</a>
+				<div class="card-body">
+					<h5 class="card-title">Add a New Menu Item</h5>
+					<p class="card-text">Create a new dish to put on the menu here.</p>
+				</div>
+			</div>
+		</div>
+		<div class="col">
+			<div class="card">
+				<a href="./update_menu">
+					<img src="/Images/sales.jpg" class="card-img-top" alt="Sales">
+				</a>
+				<div class="card-body">
+					<h5 class="card-title">Update a recipe</h5>
+					<p class="card-text">Found a better recipe? update your menu here.</p>
+				</div>
+			</div>
+		</div>
+    </div>
+</body>
 </body>
 
 {{>footer}}
