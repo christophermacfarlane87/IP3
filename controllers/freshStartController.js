@@ -81,6 +81,9 @@ exports.landingPage = function (req, res) {
 exports.stock_count = function (req, res) {
     res.render('stock_count', { stock: stockCount });
 }
+exports.post_stock = function (req, res) {
+    res.render('final_stock', { stock: stockCount });
+}
 exports.theo_stock = function (req, res) {
     res.render('theo_stock', { stock: stockCount });
 }
@@ -113,6 +116,25 @@ exports.current_menu = function (req, res) {
 
 	res.render('current_menu', { items: formattedMenu });
 }
+exports.customerOrder = function (req, res) {
+	// Convert items map to array of objects
+	const formattedMenu = menuItems.map(menu => ({
+		name: menu.name,
+		price: menu.price
+		
+	}));
+
+	res.render('customerOrder', { items: formattedMenu });
+}
+exports.postCustomerOrder = function (req, res) {
+	const tableNumber = req.body.table;
+	//need an array of items from order here
+	const items = req.body.name;
+	const amount = req.body.amount;
+	const name = req.body.name;
+
+}
+
 exports.update_menu = function (req, res) {
 	// Convert items map to array of objects
 	const formattedMenu = menuItems.map(menu => ({

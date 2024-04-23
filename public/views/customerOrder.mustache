@@ -1,0 +1,29 @@
+{{>head}}
+{{>header}}
+
+<body>
+	<div id="indexCards">
+        <form action="/post/custOrder" method="POST" >
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-4">
+                {{#items}}
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">{{name}}</h5>
+                                <input type="hidden" value="{{name}}" id ="name" name="name" class="field left">
+                                <p class="card-text">Price: {{price}}</p>
+                                <div class="mb-3">
+				                    <input type="number" class="form-control" id="{{name}}" name="{{name}}" placeholder="Amount">
+			                    </div>
+                            </div>
+                        </div>
+                    </div>
+                {{/items}}
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Send Order</button>
+        </form>
+
+	</div>
+</body>
+
+{{>footer}}
