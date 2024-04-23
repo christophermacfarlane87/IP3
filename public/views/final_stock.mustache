@@ -1,0 +1,19 @@
+{{>head}}
+{{>header}}
+
+<body>
+<section>
+    {{#stock}}
+        <h5 class="card-title">{{product.productName}}</h5>
+                            <p class="card-text">
+                            Product type: {{product.productType}}
+                            Price per pack: {{product.price_per_pack}} 
+                            Price per KG {{product.price_per_kg}} 
+                            Pack size: {{product.pack_size}} 
+                            Counted stock: {{amountInStock}} 
+                            Estimated in Stock: {{theoreticalInStock}}  
+    {{/stock}}
+</section>
+</body>
+
+{{>footer}}
