@@ -1,10 +1,11 @@
 class MenuItem {
-    constructor(name, ingredients, price, recipe) {
+    constructor(name, ingredients, price, recipe,sales) {
         //declaring variables for the menu item
         this.name = name;
         this.ingredients = ingredients;
         this.price = price;
         this.recipe = recipe;
+        this.sales= sales;
     }
     
     convertImported(products) {
@@ -92,6 +93,13 @@ class MenuItem {
     // this function is used to update a menu item on the database it will search for the menu item in the data base the change the required variable 
     updateMenuItem(){
 
+    }
+    setSales(sales){
+        this.sales = sales;
+
+    }
+    getSales(){
+        return this.sales;
     }
 }
 

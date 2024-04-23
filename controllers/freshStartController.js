@@ -112,6 +112,12 @@ exports.sales = function (req, res) {
 exports.my_sales = function (req, res) {
     res.render("my_sales");
 }
+exports.addSales = function (req, res) {
+    const predictedSales = req.body.predictedSales;
+	const amount = req.body.amount;
+	const name = req.body.name;
+	res.redirect("basket");
+}
 exports.menu = function (req, res) {
     res.render("menu");
 }
@@ -166,7 +172,12 @@ exports.show_login = function (req, res) {
 exports.orders = function (req, res) {
     res.render('orders');
 }
-
+exports.basket = function (req, res) {
+    res.render('basket');
+}
+exports.submitBasket = function (req, res) {
+    res.render('orders');
+}
 exports.search = function (req, res) {
     // Retrieve the search term from the query string
     var productType = req.query.q;

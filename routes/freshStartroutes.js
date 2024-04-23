@@ -9,8 +9,9 @@ router.get('/stock', controller.stock);
 router.get('/theo_stock', controller.theo_stock);
 router.get('/stock_count', controller.stock_count);
 router.post('/post/stock_count',controller.post_stock);
-
-
+router.post('/add/sales',controller.addSales);
+router.get('/basket', controller.basket);
+router.post('/submit/basket', controller.submitBasket);
 router.get('/sales', controller.sales);
 router.get('/tables', controller.tables);
 router.get('/my_sales', controller.my_sales);

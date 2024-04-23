@@ -2,7 +2,23 @@
 {{>header}}
 
 <body>
-
+<div class="loginPage">
+        <div class="card">
+            <div class="card-body">
+                <form action="/add/sales" method="POST">
+                    <div class="mb-3">
+                        <label for="sales" class="form-label">Todays Sales: £{{sales.sales}}</label>
+                        
+                    </div>
+                    <div class="mb-3">
+                        <label for="predictedSales" class="form-label">Please enter predicted sale for tomorrow:</label>
+                        <input type="text" class="form-control" id="predictedSales" name="predictedSales" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Update Sales</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 
 {{>footer}}
