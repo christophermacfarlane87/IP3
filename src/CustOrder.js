@@ -14,7 +14,7 @@ class CustOrder {
         return orderTotal;
     }
 
-    placeOrder() {
+    placeOrder(items, table) {
         // Stockcount.instance.orderPlaced(this.CustOrder);
         // Or something like that
     }
