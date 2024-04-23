@@ -82,7 +82,17 @@ exports.stock_count = function (req, res) {
     res.render('stock_count', { stock: stockCount });
 }
 exports.post_stock = function (req, res) {
-    res.render('final_stock', { stock: stockCount });
+
+	const productName = req.body.productName;
+	//need an array of items for product values her as well
+	const productType = req.body.productType;
+	const price_per_pack = req.body.price_per_pack;
+	const price_per_kg= req.body.price_per_kg;
+	const pack_size = req.body.pack_size;
+	const previousCount = req.body.previousCount;
+	const theoreticalInStock = req.body.theoreticalInStock;
+    const amountInStock = req.body.amountInStock;
+	res.render('final_stock', { stock: stockCount });
 }
 exports.theo_stock = function (req, res) {
     res.render('theo_stock', { stock: stockCount });

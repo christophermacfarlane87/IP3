@@ -2,23 +2,47 @@
 {{>header}}
 
 <body>
-<section>
-<form class="register-form" method="POST" action="/post_stock" name="register">
-    {{#stock}}
-                <h5 class="card-title">{{product.productName}}</h5>
-                            <p class="card-text">
-                            Product type: {{product.productType}}
-                             Price per pack: {{product.price_per_pack}} 
-                             Price per KG {{product.price_per_kg}} 
-                             Pack size: {{product.pack_size}} 
-                             Last Counted: {{amountInStock}} 
-                             Estimated in Stock: {{theoreticalInStock}}
-                                <label class ="register-label" for="in_stock"> Amount in stock :</label>
-                <input class ="register-input" type="text" id="amountInStock" name="amountInStock" placeholder="{{amountInStock}}"> </p>
-                        
+    <form class="register-form" method="POST" action="/post/stock_count">
+        <table class="table table-hover">
+        
+
+            <thead>
+                <tr>
+                    <th scope="col">Product name</th>
+                    <th scope="col">Product type</th>
+                    <th scope="col">Price per pack</th>
+                    <th scope="col">Price per kg</th>
+                    <th scope="col">Pack size</th>
+                    <th scope="col">Amount in Stock</th>
+                    <th scope="col">Theoretical Amount</th>
+                    <th scope="col">Amount</th>
+                </tr>
+            </thead>
+                {{#stock}}
+                <input type="hidden" value="{{product.productName}}" id ="productName" name="productName" class="field left">
+                <input type="hidden" value="{{product.productType}}" id ="productType" name="productType" class="field left">
+                <input type="hidden" value="{{product.price_per_pack}}" id ="price_per_pack" name="price_per_pack" class="field left">
+                <input type="hidden" value="{{product.price_per_kg}}" id ="price_per_kg" name="price_per_kg" class="field left">                   
+                <input type="hidden" value="{{product.pack_size}}" id ="pack_size" name="pack_size" class="field left">
+                <input type="hidden" value="{{amountInStock}}" id ="previousCount" name="previousCount" class="field left">
+                <input type="hidden" value="{{product.theoreticalInStock}}" id ="theoreticalInStock" name="theoreticalInStock" class="field left">
+            <tbody>
+                <tr>
+                    <td >{{product.productName}}</td>
+                    <td>{{product.productType}}</td>
+                    <td>{{product.price_per_pack}}</td>
+                    <td>{{product.pack_size}}</td>
+                    <td>{{amountInStock}}</td>
+                    <td>{{theoreticalInStock}}</td>
+                    <td>{{product.price_per_kg}}</td>
+                    <td><input class ="register-input" type="text" id="amountInStock" name="amountInStock" placeholder="0"></td>         
+                </tr>              
+                                    
                 {{/stock}}
-                <input class ="btn-primary login-button" type="submit" name="submit" id="submit" value="Update">
-                </section>
+                </tbody>
+        </table>
+        <input class ="btn-primary login-button" type="submit" name="submit" id="submit" value="Update">
+    </form>       
 </body>
 
 {{>footer}}
