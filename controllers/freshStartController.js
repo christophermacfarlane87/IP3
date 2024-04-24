@@ -3,6 +3,7 @@ const Product = require('../src/Product');
 const MenuItem = require('../src/MenuItem');
 const CustOrder = require('../src/CustOrder');
 const StockCount = require('../src/StockCount');
+const Basket = require('../src/Basket');
 
 // Setting object arrays
 let productsDB = new DB();
@@ -16,6 +17,8 @@ let custOrders; // Array of Order objects
 
 let stockCountDB = new DB();
 let stockCount; // Array of Stock count objects
+
+let currentBasket = new Basket();
 
 // Import ingredients from a remote URL
 productsDB.downloadCSV("https://raw.githubusercontent.com/christophermacfarlane87/IP3/main/examples/DBs/products.csv").then(() => {
@@ -75,12 +78,14 @@ exports.landingPage = function (req, res) {
     res.render("index");
 }
 
- exports.stock = function (req, res) {
+exports.stock = function (req, res) {
     res.render('stock', { stock: stockCount });
 }
+
 exports.stock_count = function (req, res) {
     res.render('stock_count', { stock: stockCount });
 }
+
 exports.post_stock = function (req, res) {
 
 	const productName = req.body.productName;
@@ -94,9 +99,11 @@ exports.post_stock = function (req, res) {
     const amountInStock = req.body.amountInStock;
 	res.render('final_stock', { stock: stockCount });
 }
+
 exports.theo_stock = function (req, res) {
     res.render('theo_stock', { stock: stockCount });
 }
+
 exports.tables = function (req, res) {
 	let formattedSales;
 
@@ -106,32 +113,33 @@ exports.tables = function (req, res) {
 			items: Array.from(order.items).map(([key, value]) => ({ key, value })),
 			table: order.table
 		}));
-	} catch (error) {
+	} 
+	catch (error) {
 		console.log("formattedSales Error:", error);
 	}
-    
-	try {
-		res.render('tables', { sales: formattedSales });
-	} catch (error) {
-		console.log("render Error:", error);
-	}
-    
+		
+	res.render('tables', { sales: formattedSales });
 }
+
 exports.sales = function (req, res) {
     res.render("sales");
 }
+
 exports.my_sales = function (req, res) {
     res.render("my_sales");
 }
+
 exports.addSales = function (req, res) {
     const predictedSales = req.body.predictedSales;
 	const amount = req.body.amount;
 	const name = req.body.name;
 	res.redirect("basket");
 }
+
 exports.menu = function (req, res) {
     res.render("menu");
 }
+
 exports.current_menu = function (req, res) {
 	// Convert items map to array of objects
 	const formattedMenu = menuItems.map(menu => ({
@@ -143,6 +151,7 @@ exports.current_menu = function (req, res) {
 
 	res.render('current_menu', { items: formattedMenu });
 }
+
 exports.customerOrder = function (req, res) {
 	// Convert items map to array of objects
 	const formattedMenu = menuItems.map(menu => ({
@@ -153,11 +162,10 @@ exports.customerOrder = function (req, res) {
 
 	res.render('customerOrder', { items: formattedMenu });
 }
+
 exports.postCustomerOrder = function (req, res) {
 	const tableNumber = req.body.tableNumber;
 	const order = new Map();
-
-	console.log("products[0]", products[0]);
 
     menuItems.forEach((menuItem) => {
         const itemName = menuItem.name;
@@ -172,7 +180,7 @@ exports.postCustomerOrder = function (req, res) {
 		}
     });
 
-	custOrders.push(order, tableNumber);
+	custOrders.push(new CustOrder(order, tableNumber, stockCount));
 
 	res.redirect('/');
 }
@@ -188,9 +196,11 @@ exports.update_menu = function (req, res) {
 
 	res.render('update_menu', { items: formattedMenu });
 }
+
 exports.new_menu = function(req,res){
 	res.render("new_menu");
 }
+
 exports.show_login = function (req, res) {
     res.render("login");
 }
@@ -198,12 +208,45 @@ exports.show_login = function (req, res) {
 exports.orders = function (req, res) {
     res.render('orders');
 }
+
 exports.basket = function (req, res) {
-    res.render('basket');
+    const structuredProducts = [];
+    for (const [product, quantity] of currentBasket.productsInBasket.entries()) {
+        if (product !== null && quantity !== null) {
+            structuredProducts.push({
+                productName: product.productName,
+                productType: product.productType,
+                pricePerPack: product.pricePerPack,
+				pricePerKg: product.pricePerKg,
+                packSize: product.packSize,
+                quantity: quantity
+            });
+        }
+    }
+
+	console.log("structuredProducts", structuredProducts);
+    res.render('basket', { structuredProducts: structuredProducts });
 }
+
 exports.submitBasket = function (req, res) {
     res.render('orders');
 }
+
+exports.addToBasket = function (req, res) {
+	const amountToAdd = parseInt(req.body.amount_to_order);
+	const productName = req.body.productName;
+
+	products.forEach(product => {
+		if(product.productName === productName) {
+			currentBasket.productsInBasket.set(product, amountToAdd)
+		}
+	})
+	
+	console.log("Amount of", productName, "to add to basket:", amountToAdd);
+	res.redirect(req.get('referer'));
+	console.log("basket:", currentBasket);
+}
+
 exports.search = function (req, res) {
     // Retrieve the search term from the query string
     var productType = req.query.q;
