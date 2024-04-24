@@ -4,11 +4,12 @@ const MenuItem = require('../src/MenuItem');
 const CustOrder = require('../src/CustOrder');
 const StockCount = require('../src/StockCount');
 const Basket = require('../src/Basket');
-
+const User = require('../src/User');
 // Setting object arrays
 let productsDB = new DB();
 let products; // Array of Product objects
-
+let userDB = new DB();
+let user;
 let menuDB = new DB();
 let menuItems; // Array of Menu objects
 
@@ -112,7 +113,21 @@ exports.post_stock = function (req, res) {
 exports.theo_stock = function (req, res) {
     res.render('theo_stock', { stock: stockCount });
 }
+exports.updateMenu = function (req, res) {
+	const dishName= req.body.dishName;
+	const productName= req.body.productName;
+	const price= req.body.price;
+//ive added the same function for loading the current menu but this does not add the updated items to the map yet
+	const formattedMenu = menuItems.map(menu => ({
+		name: menu.name,
+		ingredients: Array.from(menu.ingredients).map(([key, value]) => ({ key, value })),
+		price: menu.price,
+		recipe: menu.recipe
+	}));
 
+	res.render('current_menu', { items: formattedMenu });
+    
+}
 exports.tables = function (req, res) {
 	let formattedSales;
 
@@ -213,7 +228,9 @@ exports.new_menu = function(req,res){
 exports.show_login = function (req, res) {
     res.render("login");
 }
-
+exports.welcomeBack = function (req, res) {
+    res.render("welcome");
+}
 exports.orders = function (req, res) {
     res.render('orders');
 }
