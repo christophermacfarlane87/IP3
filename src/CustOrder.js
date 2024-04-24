@@ -1,22 +1,39 @@
+const StockCount = require("./StockCount");
+
 class CustOrder {
-    constructor(items, table) {
+    constructor(items, table, stockCounts) {
         this.items = items;
         this.table = table;
+
+        this.placeOrder(items, stockCounts);
     }
 
     totalCost() {
         var orderTotal = 0;
 
-        this.items.forEach (function(amount, item) {
+        this.items.forEach(function(amount, item) {
             orderTotal += amount;
         })
 
         return orderTotal;
     }
 
-    placeOrder(items, table) {
-        // Stockcount.instance.orderPlaced(this.CustOrder);
-        // Or something like that
+    placeOrder(litems, stockCounts) {
+        if (litems !== undefined && stockCounts !== undefined) {
+            try {
+                litems.forEach(function(amount, item) {
+                    stockCounts.forEach(stockCount => {
+                        if(item.ingredients.get(stockCount.product) !== undefined) {
+                            stockCount.theoreticalInStock -= (item.ingredients.get(stockCount.product) * amount);
+                            stockCount.theoreticalInStock = +(stockCount.theoreticalInStock.toFixed(2));
+                        }
+                    });
+                })
+            } 
+            catch (error) {
+                console.log("error", error);
+            }
+        }
     }
 
     convertImported(menuItems) {
