@@ -103,7 +103,21 @@ exports.post_stock = function (req, res) {
 exports.theo_stock = function (req, res) {
     res.render('theo_stock', { stock: stockCount });
 }
+exports.updateMenu = function (req, res) {
+	const dishName= req.body.dishName;
+	const productName= req.body.productName;
+	const price= req.body.price;
+//ive added the same function for loading the current menu but this does not add the updated items to the map yet
+	const formattedMenu = menuItems.map(menu => ({
+		name: menu.name,
+		ingredients: Array.from(menu.ingredients).map(([key, value]) => ({ key, value })),
+		price: menu.price,
+		recipe: menu.recipe
+	}));
 
+	res.render('current_menu', { items: formattedMenu });
+    
+}
 exports.tables = function (req, res) {
 	let formattedSales;
 
