@@ -31,11 +31,11 @@
                     <td >{{product.productName}}</td>
                     <td>{{product.productType}}</td>
                     <td>{{product.pricePerPack}}</td>
+                    <td>{{product.pricePerKg}}</td>
                     <td>{{product.packSize}}</td>
                     <td>{{amountInStock}}</td>
                     <td>{{theoreticalInStock}}</td>
-                    <td>{{product.pricePerKg}}</td>
-                    <td><input class ="register-input" type="text" id="amountInStock" name="amountInStock" placeholder="0"></td>         
+                    <td><input class ="register-input" type="text" id="{{product.productName}}" name="{{product.productName}}" placeholder="0"></td>         
                 </tr>              
                                     
                 {{/stock}}

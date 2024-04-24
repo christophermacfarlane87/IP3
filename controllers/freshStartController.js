@@ -87,17 +87,26 @@ exports.stock_count = function (req, res) {
 }
 
 exports.post_stock = function (req, res) {
+	products.forEach((product) => {
+        const productName = product.productName;
+		const productAmount = parseInt(req.body[productName]);
 
-	const productName = req.body.productName;
-	//need an array of items for product values her as well
-	const productType = req.body.productType;
-	const price_per_pack = req.body.price_per_pack;
-	const price_per_kg= req.body.price_per_kg;
-	const pack_size = req.body.pack_size;
-	const previousCount = req.body.previousCount;
-	const theoreticalInStock = req.body.theoreticalInStock;
-    const amountInStock = req.body.amountInStock;
-	res.render('final_stock', { stock: stockCount });
+        if (productAmount > 0) {
+			console.log("Amount of", productName, "is",  productAmount)
+
+			stockCount.forEach((count) => {
+				if (count.product == product) {
+					count.amountInStock = productAmount;
+					count.theoreticalInStock = productAmount;
+				}
+			});
+        }
+		else {
+			//console.log("No", productName, "ordered.",  req.body[productAmount])
+		}
+    });
+
+	res.redirect(req.get('referer'));
 }
 
 exports.theo_stock = function (req, res) {

@@ -3,7 +3,7 @@ const mustacheExpress = require('mustache-express');
 
 const bodyParser = require('body-parser');
 const path = require('path');
-const public = path.join(__dirname,'public');
+const public = path.join(__dirname, 'public');
 const router = require('./routes/freshStartroutes');
 const PORT = process.env.PORT || 3000;
 
