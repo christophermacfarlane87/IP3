@@ -212,16 +212,20 @@ exports.orders = function (req, res) {
 exports.basket = function (req, res) {
     const structuredProducts = [];
     for (const [product, quantity] of currentBasket.productsInBasket.entries()) {
-        if (product !== null && quantity !== null) {
-            structuredProducts.push({
-                productName: product.productName,
-                productType: product.productType,
-                pricePerPack: product.pricePerPack,
-				pricePerKg: product.pricePerKg,
-                packSize: product.packSize,
-                quantity: quantity
-            });
-        }
+		stockCount.forEach(count => {
+			if (product !== null && quantity !== null && count.product == product) {
+				structuredProducts.push({
+					productName: product.productName,
+					productType: product.productType,
+					pricePerPack: product.pricePerPack,
+					pricePerKg: product.pricePerKg,
+					packSize: product.packSize,
+					quantity: quantity,
+					amountInStock: count.amountInStock,
+					theoreticalInStock: count.theoreticalInStock
+				});
+			}
+		});
     }
 
 	console.log("structuredProducts", structuredProducts);
