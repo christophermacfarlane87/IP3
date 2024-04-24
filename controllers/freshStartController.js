@@ -133,7 +133,7 @@ exports.addSales = function (req, res) {
     const predictedSales = req.body.predictedSales;
 	const amount = req.body.amount;
 	const name = req.body.name;
-	res.redirect("basket");
+	
 }
 
 exports.menu = function (req, res) {
