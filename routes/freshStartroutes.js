@@ -25,6 +25,7 @@ router.get('/:productType', controller.productType);
 // Post Requests
 router.post('/post/stock_count',controller.post_stock);
 router.post('/add/sales',controller.addSales);
+router.post('/welcomeBack',controller.welcomeBack);
 router.post('/submit/basket', controller.submitBasket);
 router.post('/post/addToBasket', controller.addToBasket);
 router.post('/post/custOrder', controller.postCustomerOrder);

@@ -4,11 +4,12 @@ const MenuItem = require('../src/MenuItem');
 const CustOrder = require('../src/CustOrder');
 const StockCount = require('../src/StockCount');
 const Basket = require('../src/Basket');
-
+const User = require('../src/User');
 // Setting object arrays
 let productsDB = new DB();
 let products; // Array of Product objects
-
+let userDB = new DB();
+let user;
 let menuDB = new DB();
 let menuItems; // Array of Menu objects
 
@@ -218,7 +219,9 @@ exports.new_menu = function(req,res){
 exports.show_login = function (req, res) {
     res.render("login");
 }
-
+exports.welcomeBack = function (req, res) {
+    res.render("welcome");
+}
 exports.orders = function (req, res) {
     res.render('orders');
 }
