@@ -98,13 +98,24 @@ exports.theo_stock = function (req, res) {
     res.render('theo_stock', { stock: stockCount });
 }
 exports.tables = function (req, res) {
+	let formattedSales;
+
     // Convert items map to array of objects
-    const formattedSales = custOrders.map(order => ({
-		items: Array.from(order.items).map(([key, value]) => ({ key, value })),
-		table: order.table
-    }));
+	try {
+		formattedSales = custOrders.map(order => ({
+			items: Array.from(order.items).map(([key, value]) => ({ key, value })),
+			table: order.table
+		}));
+	} catch (error) {
+		console.log("formattedSales Error:", error);
+	}
     
-    res.render('tables', { sales: formattedSales });
+	try {
+		res.render('tables', { sales: formattedSales });
+	} catch (error) {
+		console.log("render Error:", error);
+	}
+    
 }
 exports.sales = function (req, res) {
     res.render("sales");
@@ -143,12 +154,27 @@ exports.customerOrder = function (req, res) {
 	res.render('customerOrder', { items: formattedMenu });
 }
 exports.postCustomerOrder = function (req, res) {
-	const tableNumber = req.body.table;
-	//need an array of items from order here
-	const items = req.body.name;
-	const amount = req.body.amount;
-	const name = req.body.name;
+	const tableNumber = req.body.tableNumber;
+	const order = new Map();
 
+	console.log("products[0]", products[0]);
+
+    menuItems.forEach((menuItem) => {
+        const itemName = menuItem.name;
+		const itemAmount = parseInt(req.body[itemName]);
+
+        if (itemAmount > 0) {
+			console.log("Amount of", itemName, "is",  itemAmount)
+			order.set(menuItem, itemAmount);
+        }
+		else {
+			console.log("No", itemName, "ordered.",  req.body[itemName])
+		}
+    });
+
+	custOrders.push(order, tableNumber);
+
+	res.redirect('/');
 }
 
 exports.update_menu = function (req, res) {
