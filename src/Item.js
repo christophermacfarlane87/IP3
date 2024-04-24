@@ -17,7 +17,16 @@ class Item {
     getMeasure() {
         return this.measure;
     }
+    addProductForm(formIndex){
+        
+        this.formIndex =formIndex;
+        array.forEach(formIndex => {
 
+            document.write("<li class='list-group-item'>Ingredient<br><input type='text' id='ingredients' name='ingredients' placeholder= Spaghetti></input>")
+
+        });
+    
+    }
     // Setters
     setTitle(title) {
         this.title = title;
