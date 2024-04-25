@@ -1,6 +1,6 @@
-items,table
-"[""Baked Potato"", 2,""Mushroom Risotto"",1]",37
-"[""Bananas Foster"", 1,""Fish Tacos"",1]",2
-"[""Mushroom Risotto"", 2,""Baked Potato"",1,""Caprese Salad"",1]",23
-"[""Pasta Bolognese"", 2]",12
-"[""Fish Tacos"", 6,""Mushroom Risotto"",1]",18
+items,table,dateTime
+"[""Baked Potato"", 2,""Mushroom Risotto"",1]",37,1714071676000
+"[""Bananas Foster"", 1,""Fish Tacos"",1]",2,1713357721000
+"[""Mushroom Risotto"", 2,""Baked Potato"",1,""Caprese Salad"",1]",23,1713535979000
+"[""Pasta Bolognese"", 2]",12,1713705947000
+"[""Fish Tacos"", 6,""Mushroom Risotto"",1]",18,1713898874000

@@ -1,9 +1,10 @@
 const StockCount = require("./StockCount");
 
 class CustOrder {
-    constructor(items, table, stockCounts) {
+    constructor(items, table, dateTime, stockCounts) {
         this.items = items;
         this.table = table;
+        this.dateTime = parseInt(dateTime);
 
         this.placeOrder(items, stockCounts);
     }
@@ -12,7 +13,7 @@ class CustOrder {
         var orderTotal = 0;
 
         this.items.forEach(function(amount, item) {
-            orderTotal += amount;
+            orderTotal += (item.price * amount);
         })
 
         return orderTotal;

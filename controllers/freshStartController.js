@@ -5,6 +5,7 @@ const CustOrder = require('../src/CustOrder');
 const StockCount = require('../src/StockCount');
 const Basket = require('../src/Basket');
 const User = require('../src/User');
+
 // Setting object arrays
 let productsDB = new DB();
 let products; // Array of Product objects
@@ -20,6 +21,7 @@ let stockCountDB = new DB();
 let stockCount; // Array of Stock count objects
 
 let currentBasket = new Basket();
+let globalParLevel = 1000;
 
 // Import ingredients from a remote URL
 productsDB.downloadCSV("https://raw.githubusercontent.com/christophermacfarlane87/IP3/main/examples/DBs/products.csv").then(() => {
@@ -38,7 +40,7 @@ productsDB.downloadCSV("https://raw.githubusercontent.com/christophermacfarlane8
 		});
 
 		// Import Cust orders after menu has been imported
-		custOrdersDB.downloadCSV("https://raw.githubusercontent.com/christophermacfarlane87/IP3/main/examples/DBs/orders.csv").then(() => {
+		custOrdersDB.localCSV("examples/DBs/orders.csv").then(() => {
 			custOrdersDB.classify(CustOrder).then(instances => {
 				custOrders = instances.map((order) => {
 					order.convertImported(menuItems);
@@ -135,7 +137,8 @@ exports.tables = function (req, res) {
 	try {
 		formattedSales = custOrders.map(order => ({
 			items: Array.from(order.items).map(([key, value]) => ({ key, value })),
-			table: order.table
+			table: order.table,
+			time: new Date(order.dateTime).toLocaleString([], {timeZoneName: 'short'})
 		}));
 	} 
 	catch (error) {
@@ -146,7 +149,18 @@ exports.tables = function (req, res) {
 }
 
 exports.sales = function (req, res) {
-    res.render("sales");
+	let todaysSales = 0;
+
+	// Calculate todays sales
+	custOrders.forEach((order) => {
+		if (order.dateTime > (new Date().setUTCHours(0,0,0,0))) {
+			todaysSales += order.totalCost();
+		}
+	});
+	
+	todaysSales = (Math.round(todaysSales * 100) / 100).toFixed(2);
+
+    res.render("sales", { todaysSales: todaysSales, globalParLevel: new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP' }).format(globalParLevel) });
 }
 
 exports.my_sales = function (req, res) {
@@ -154,10 +168,23 @@ exports.my_sales = function (req, res) {
 }
 
 exports.addSales = function (req, res) {
-    const predictedSales = req.body.predictedSales;
-	const amount = req.body.amount;
-	const name = req.body.name;
-	res.render("basket");
+    globalParLevel = req.body.predictedSales;
+
+	try {
+		stockCount.forEach((count) => {
+			if (count.product !== undefined) {
+				const minimumStockLevel = (globalParLevel / 1000) * count.product.parLevel;
+
+				if (count.theoreticalInStock < minimumStockLevel) {
+					currentBasket.productsInBasket.set(count.product, (minimumStockLevel - count.theoreticalInStock).toFixed(0))
+				}
+			}
+		});
+	} catch (error) {
+		console.log("error", error);
+	}
+
+	res.redirect("/basket");
 }
 
 exports.menu = function (req, res) {
@@ -204,7 +231,7 @@ exports.postCustomerOrder = function (req, res) {
 		}
     });
 
-	custOrders.push(new CustOrder(order, tableNumber, stockCount));
+	custOrders.push(new CustOrder(order, tableNumber, Date.now(), stockCount));
 
 	res.redirect('/');
 }

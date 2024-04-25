@@ -25,11 +25,11 @@
 					<h5 class="card-title">Enter sales</h5>
 					<form action="/add/sales" method="POST">
 						<div class="mb-3">
-							<label for="sales" class="form-label">Todays Sales: £{{sales.sales}}</label>						
+							<label for="sales" class="form-label">Todays Sales: £{{todaysSales}}</label>						
 						</div>
 						<div class="mb-3">
 							<label for="predictedSales" class="form-label">Please enter predicted sale for tomorrow:</label>
-							<input type="text" class="form-control" id="predictedSales" name="predictedSales" required>
+							<input type="text" class="form-control" id="predictedSales" name="predictedSales" placeholder="Current: {{globalParLevel}}" required>
 						</div>
 						<button type="submit" class="btn btn-primary btn-block">Update Sales</button>
 					</form>
