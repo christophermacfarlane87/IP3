@@ -40,7 +40,7 @@ productsDB.downloadCSV("https://raw.githubusercontent.com/christophermacfarlane8
 		});
 
 		// Import Cust orders after menu has been imported
-		custOrdersDB.localCSV("examples/DBs/orders.csv").then(() => {
+		custOrdersDB.downloadCSV("https://raw.githubusercontent.com/christophermacfarlane87/IP3/main/examples/DBs/orders.csv").then(() => {
 			custOrdersDB.classify(CustOrder).then(instances => {
 				custOrders = instances.map((order) => {
 					order.convertImported(menuItems);
@@ -49,7 +49,7 @@ productsDB.downloadCSV("https://raw.githubusercontent.com/christophermacfarlane8
 			});
 
 			// Import latest Stock count after cust orders have been imported
-			stockCountDB.localCSV("examples/DBs/stock.csv").then(() => {
+			stockCountDB.downloadCSV("https://raw.githubusercontent.com/christophermacfarlane87/IP3/main/examples/DBs/stock.csv").then(() => {
 				// Find the largest DB key (date) to set the most recent stock count
 				let largestKey = null;
 
