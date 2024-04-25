@@ -2,7 +2,7 @@
 {{>header}}
 
 <body>
-	<div id="indexCards"> 
+	<div id="indexCards">
 		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-4">
 			<div class="col">
 				<div class="card">
@@ -15,24 +15,23 @@
 					</div>
 				</div>
 			</div>
-
 			
-		
-		<div class="col">
-			<div class="card">
-				<img src="/Images/sales2.jpeg" class="card-img-top" alt="My Sales">
-				<div class="card-body">
-					<h5 class="card-title">Enter sales</h5>
-					<form action="/add/sales" method="POST">
-						<div class="mb-3">
-							<label for="sales" class="form-label">Todays Sales: £{{todaysSales}}</label>						
-						</div>
-						<div class="mb-3">
-							<label for="predictedSales" class="form-label">Please enter predicted sale for tomorrow:</label>
-							<input type="text" class="form-control" id="predictedSales" name="predictedSales" placeholder="Current: {{globalParLevel}}" required>
-						</div>
-						<button type="submit" class="btn btn-primary btn-block">Update Sales</button>
-					</form>
+			<div class="col">
+				<div class="card">
+					<img src="/Images/sales2.jpeg" class="card-img-top" alt="My Sales">
+					<div class="card-body">
+						<h5 class="card-title">Enter sales</h5>
+						<form action="/add/sales" method="POST">
+							<div class="mb-3">
+								<label for="sales" class="form-label">Todays Sales: £{{todaysSales}}</label>						
+							</div>
+							<div class="mb-3">
+								<label for="predictedSales" class="form-label">Please enter predicted sale for tomorrow:</label>
+								<input type="text" class="form-control" id="predictedSales" name="predictedSales" placeholder="Current: {{globalParLevel}}" required>
+							</div>
+							<button type="submit" class="btn btn-success btn-block">Update Sales</button>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>

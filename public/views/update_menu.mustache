@@ -8,22 +8,24 @@
 				<div class="col">
 					<div class="card">
 						<div class="card-body">
-                        <form action="/update/menu" method="post">
-							<h5 class="card-title">Name:{{name}}</h5><input type="text" id="dishName" name="dishName" placeholder={{name}}></h5>
-                            <p class="card-text">Ingredients:
-                            <ul class="list-group">
-                                {{#ingredients}}
-                                <li class="list-group-item">{{key.productName}}<br><input type="text" id="productName" name="productName" placeholder= ({{value}})kg>
-                                {{/ingredients}}
-                            </ul></p>
-                            <p class="card-text">Price:<br><input type="text" id="price" name="price" placeholder={{price}}></p>
-                         	<div class="form-floating">
- 							 <textarea class="form-control" placeholder="{{recipe}}" id="floatingTextarea2" style="height: 100px"></textarea>
-  								<label for="floatingTextarea2">Recipe:</label>
-							</div>
-							<br>
-							<button type="submit" class="btn btn-success">Update</button>
-						</form>
+							<form action="/update/menu" method="post">
+								<h5 class="card-title">Name: {{name}}</h5><input type="text" id="dishName" name="dishName" placeholder={{name}}></h5>
+								<p class="card-text">Ingredients:
+									<ul class="list-group">
+										{{#ingredients}}
+											<li class="list-group-item">{{key.productName}}<br><input type="text" id="productName" name="productName" placeholder= ({{value}})kg>
+										{{/ingredients}}
+									</ul>
+								</p>
+								<p class="card-text">Price:<br><input type="text" id="price" name="price" placeholder={{price}}></p>
+								<div class="form-floating">
+									<textarea class="form-control" placeholder="{{recipe}}" id="floatingTextarea2" style="height: 100px"></textarea>
+									<label for="floatingTextarea2">Recipe:</label>
+								</div>
+								<br>
+								<button type="submit" class="btn btn-success">Update</button>
+							</form>
+						</div>
 					</div>
 				</div>
 			{{/items}}
