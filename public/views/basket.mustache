@@ -2,7 +2,7 @@
 {{>header}}
 
 <body>
-    <form class="register-form" method="POST" action="/submit/basket">
+    <form id="basket" class="register-form" method="POST" action="/submit/basket">
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -34,17 +34,15 @@
                     <td>{{packSize}}</td>
                     <td>{{amountInStock}}</td>
                     <td>{{theoreticalInStock}}</td>
-                    <td><input class="register-input" type="text" id="amountInStock" name="amountInStock" placeholder="{{quantity}}" value="{{quantity}}"></td>        
+                    <td><input class="register-input" type="text" id="{{productName}}" name="{{productName}}" placeholder="{{quantity}}" value="{{quantity}}"></td>
                 </tr>
+
                 {{/structuredProducts}}
             </tbody>
         </table>
-        <input class="btn-primary login-button" type="submit" name="submit" id="submit" value="Place Order">
-
+        <input class="btn-primary login-button" type="submit" name="orderSubmit" id="orderSubmit" value="Place Order">
+        <button type="button" class="btn-primary" onclick="updateForm('basket')">Update Basket</button>
     </form>
-            <form action="/basket">
-            <input type="submit" value="Update Basket" />
-        </form>
 </body>
 
 {{>footer}}

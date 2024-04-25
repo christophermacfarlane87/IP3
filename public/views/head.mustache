@@ -13,4 +13,18 @@
 
 	<!-- Local CSS -->
 	<link rel="stylesheet" type="text/css" href="/css/styles.css">
+
+	<script>
+		function updateForm(action) {
+			var form = document.getElementById(action);
+
+			if (form) {
+				form.action = "/update/basket";
+				
+				form.submit();
+			} else {
+				console.error("Form with ID '" + action + "' not found.");
+			}
+		}
+	</script>
 </head>

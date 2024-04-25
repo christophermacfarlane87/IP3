@@ -49,7 +49,7 @@ productsDB.downloadCSV("https://raw.githubusercontent.com/christophermacfarlane8
 			});
 
 			// Import latest Stock count after cust orders have been imported
-			stockCountDB.downloadCSV("https://raw.githubusercontent.com/christophermacfarlane87/IP3/main/examples/DBs/stock.csv").then(() => {
+			stockCountDB.localCSV("examples/DBs/stock.csv").then(() => {
 				// Find the largest DB key (date) to set the most recent stock count
 				let largestKey = null;
 
@@ -92,9 +92,9 @@ exports.stock_count = function (req, res) {
 exports.post_stock = function (req, res) {
 	products.forEach((product) => {
         const productName = product.productName;
-		const productAmount = parseInt(req.body[productName]);
+		const productAmount = parseFloat(req.body[productName]);
 
-        if (productAmount > 0) {
+        if (productAmount >= 0) {
 			console.log("Amount of", productName, "is",  productAmount)
 
 			stockCount.forEach((count) => {
@@ -113,13 +113,25 @@ exports.post_stock = function (req, res) {
 }
 
 exports.theo_stock = function (req, res) {
-    res.render('theo_stock', { stock: stockCount });
+	let sortedStock;
+
+	try {
+		sortedStock = stockCount.sort((a, b) => {
+			const productNameA = (a.product && a.product.productName) || '';
+			const productNameB = (b.product && b.product.productName) || '';
+			return productNameA.localeCompare(productNameB);
+		});
+	} catch (error) {
+		console.log("error", error);
+	}
+	
+    res.render('theo_stock', { stock: sortedStock });
 }
+
 exports.updateMenu = function (req, res) {
 	const dishName= req.body.dishName;
 	const productName= req.body.productName;
 	const price= req.body.price;
-//ive added the same function for loading the current menu but this does not add the updated items to the map yet
 	const formattedMenu = menuItems.map(menu => ({
 		name: menu.name,
 		ingredients: Array.from(menu.ingredients).map(([key, value]) => ({ key, value })),
@@ -133,7 +145,6 @@ exports.updateMenu = function (req, res) {
 exports.tables = function (req, res) {
 	let formattedSales;
 
-    // Convert items map to array of objects
 	try {
 		formattedSales = custOrders.map(order => ({
 			items: Array.from(order.items).map(([key, value]) => ({ key, value })),
@@ -220,7 +231,7 @@ exports.postCustomerOrder = function (req, res) {
 
     menuItems.forEach((menuItem) => {
         const itemName = menuItem.name;
-		const itemAmount = parseInt(req.body[itemName]);
+		const itemAmount = parseFloat(req.body[itemName]);
 
         if (itemAmount > 0) {
 			console.log("Amount of", itemName, "is",  itemAmount)
@@ -233,7 +244,7 @@ exports.postCustomerOrder = function (req, res) {
 
 	custOrders.push(new CustOrder(order, tableNumber, Date.now(), stockCount));
 
-	res.redirect('/');
+	res.redirect('/tables');
 }
 
 exports.update_menu = function (req, res) {
@@ -281,16 +292,45 @@ exports.basket = function (req, res) {
 		});
     }
 
-	console.log("structuredProducts", structuredProducts);
-    res.render('basket', { structuredProducts: structuredProducts });
+	res.render('basket', { structuredProducts: structuredProducts });
 }
 
 exports.submitBasket = function (req, res) {
-    res.render('orders');
+	console.log("submitBasket");
+    products.forEach((product) => {
+        const productName = product.productName;
+        const productAmount = parseFloat(req.body[productName]);
+
+		if (productAmount > 0) {
+			stockCount.forEach((count) => {
+				if (count.product.productName == product.productName) {
+					count.amountInStock = parseFloat(count.amountInStock) + productAmount;
+					count.theoreticalInStock = parseFloat(count.theoreticalInStock) + productAmount;
+				}
+			});
+		}
+    });
+
+	currentBasket = new Basket();
+    res.redirect('/');
 }
 
+exports.updateBasket = function (req, res) {
+    products.forEach((product) => {
+        const productName = product.productName;
+        const productAmount = parseFloat(req.body[productName]);
+
+        if (productAmount >= 0) {
+            currentBasket.productsInBasket.set(product, productAmount);
+        }
+    });
+
+    res.redirect('/basket');
+};
+
+
 exports.addToBasket = function (req, res) {
-	const amountToAdd = parseInt(req.body.amount_to_order);
+	const amountToAdd = parseFloat(req.body.amount_to_order);
 	const productName = req.body.productName;
 
 	products.forEach(product => {
@@ -308,24 +348,58 @@ exports.search = function (req, res) {
     // Retrieve the search term from the query string
     var productType = req.query.q;
     let filteredProducts;
+	let structuredProducts = [];
 
-	if ((filteredProducts = products.filter(product => product.productName.toLowerCase().includes(productType.toLowerCase()))) === 0) {
-		
+	if ((filteredProducts = products.filter(product => product.productName.toLowerCase().includes(productType.toLowerCase()))) === 0) {}
+
+	try {
+		stockCount.forEach(count => {
+			if (count !== null  && filteredProducts.includes(count.product)) {
+				structuredProducts.push({
+					productName: count.product.productName,
+					productType: count.product.productType,
+					pricePerPack: count.product.pricePerPack,
+					pricePerKg: count.product.pricePerKg,
+					packSize: count.product.packSize,
+					productDescription: count.product.productDescription,
+					theoreticalInStock: count.theoreticalInStock
+				});
+			}
+		});
+	} catch (error) {
+		console.log("error", error);
 	}
 
-    res.render('product', { products: filteredProducts });
+    res.render('product', { products: structuredProducts });
 }
 
 exports.productType = function (req, res){
 	// Checks URL and sets productType (e.g. localhost:3000/bakery -> productType = bakery)
 	const productType = req.params.productType;
 	let filteredProducts;
+	let structuredProducts = [];
 
-	if ((filteredProducts = products.filter(product => product.productType === productType)) === 0) { 
-		 
+	if ((filteredProducts = products.filter(product => product.productType === productType)) === 0) {}
+
+	try {
+		stockCount.forEach(count => {
+			if (count !== null  && filteredProducts.includes(count.product)) {
+				structuredProducts.push({
+					productName: count.product.productName,
+					productType: count.product.productType,
+					pricePerPack: count.product.pricePerPack,
+					pricePerKg: count.product.pricePerKg,
+					packSize: count.product.packSize,
+					productDescription: count.product.productDescription,
+					theoreticalInStock: count.theoreticalInStock
+				});
+			}
+		});
+	} catch (error) {
+		console.log("error", error);
 	}
 
-	res.render('product', { products: filteredProducts });
+    res.render('product', { products: structuredProducts });
 }
 
 exports.logout = function (req, res) {
